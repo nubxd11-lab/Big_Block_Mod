@@ -10,22 +10,39 @@ import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.logging.log4j.LogManager;
+
+import java.util.logging.Logger;
+
+
 
 public class RegistryHandler {
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
-
-    public static void init() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-
+    private static final Logger LOGGER = (Logger) LogManager.getLogger();
+    public static final String MOD_ID = "modname";
+    public ModName(){
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        RegistryHandler.init();
+        public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
+        MinecraftForge.EVENT_BUS.register(this);
     }
+    private void setup(final FMLCommonSetupEvent event) { }
+    private void doClientStuff(final FMLClientSetupEvent event) { }
+    public static final ItemGroup TAB = new ItemGroup("modNameItems") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(RegistryHandler.RUBY.get());
+        }
+    };
 
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
+
+
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
 
