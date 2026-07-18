@@ -1,5 +1,7 @@
 {
   "item.playerevolutions.ruby": "Ruby",
   "block.playerevolutions.ruby_block": "Block of Ruby",
+  "block.playerevolutions.sapphire_block": "Block of Sapphire",
+  "block.playerevolutions.bauxite_block": "Block of Bauxite",
   "itemGroup.playerevolutions": "Player Evolutions"
 }
