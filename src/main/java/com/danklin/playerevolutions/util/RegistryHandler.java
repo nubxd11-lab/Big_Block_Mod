@@ -6,6 +6,7 @@ import com.danklin.playerevolutions.blocks.RubyBlock;
 import com.danklin.playerevolutions.blocks.SapphireBlock;
 import com.danklin.playerevolutions.items.ItemBase;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.items.ManpadsItem;
 import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -37,6 +38,8 @@ public class RegistryHandler {
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
             new ScopedCrossbow(new Item.Properties().group(ItemGroup.MISC)));
-
-
+    public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
+            new ManpadsItem(new Item.Properties().group(ItemGroup.MISC)));
+    public static final RegistryObject<Item> ROCKET_AMMO = ITEMS.register("rocket_ammo", () ->
+            new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
 }
