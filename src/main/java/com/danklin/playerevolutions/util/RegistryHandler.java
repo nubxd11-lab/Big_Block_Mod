@@ -6,6 +6,7 @@ import com.danklin.playerevolutions.blocks.RubyBlock;
 import com.danklin.playerevolutions.blocks.SapphireBlock;
 import com.danklin.playerevolutions.items.ItemBase;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -35,7 +36,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block",() -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
-            new Item(new Item.Properties().group(ItemGroup.MISC)));
+            new ScopedCrossbow(new Item.Properties().group(ItemGroup.MISC)));
 
 
 }
