@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "C)R",
+    " . "
+  ],
+  "key": {
+    "#": "minecraft:tnt",
+    "C": "minecraft:clock",
+    ")": "minecraft:crossbow",
+    "R": "minecraft:repeater",
+    ".": "minecraft:redstone_block"
+  },
+  "result": {
+    "item": "playerevolutions:scoped_crossbow",
+    "count": 1
+  }
+}
