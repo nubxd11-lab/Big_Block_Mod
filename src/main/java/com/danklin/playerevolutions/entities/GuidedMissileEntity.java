@@ -37,7 +37,7 @@ public class GuidedMissileEntity extends SnowballEntity {
             }
             // If the target dies before impact, the missile will just naturally fly straight until it hits a block.
 
-            ((ServerWorld) this.world).spawnParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
+            ((ServerWorld) this.world).spawnParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE,
                     this.getPosX(), this.getPosY(), this.getPosZ(),
                     3, 0.1D, 0.1D, 0.1D, 0.0D);
         }

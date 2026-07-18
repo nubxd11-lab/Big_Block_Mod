@@ -64,6 +64,7 @@ public class ManpadsItem extends Item {
         Entity currentTarget = null;
         double closestDist = Double.MAX_VALUE;
 
+        boolean skip = false;
         // 2. See what the laser hits
         for (Entity ent : worldIn.getEntitiesWithinAABB(Entity.class, aabb, (e) -> e != player && e.isAlive())) {
 
@@ -76,12 +77,14 @@ public class ManpadsItem extends Item {
                     || ent instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity
                     || ent instanceof net.minecraft.entity.boss.WitherEntity
                     || ent instanceof net.minecraft.entity.passive.BatEntity
+                    || ent instanceof net.minecraft.entity.passive.BeeEntity
                     || ent instanceof net.minecraft.entity.IProjectile
                     || ent instanceof net.minecraft.entity.projectile.ShulkerBulletEntity
-                    || ent instanceof net.minecraft.entity.projectile.ArrowEntity
-                    || ent instanceof net.minecraft.entity.projectile.PotionEntity
                     || ent instanceof net.minecraft.entity.projectile.DamagingProjectileEntity;
-
+            if(ent instanceof net.minecraft.entity.IProjectile)
+            {
+                skip = true;
+            }
             if (isTargetable) {
                 // Expand the hitbox slightly to make aiming more forgiving
                 AxisAlignedBB entBox = ent.getBoundingBox().grow(1.5D);
@@ -111,7 +114,7 @@ public class ManpadsItem extends Item {
                         worldIn.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_NOTE_BLOCK_BIT, SoundCategory.PLAYERS, 1.0F, 1.5F);
                     }
 
-                    if (lockTicks == 10) {
+                    if (lockTicks == 10 || skip) {
                         worldIn.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_NOTE_BLOCK_BELL, SoundCategory.PLAYERS, 1.0F, 2.0F);
                         player.sendStatusMessage(new StringTextComponent("TARGET LOCKED!").applyTextStyle(TextFormatting.RED), true);
                     }
