@@ -20,9 +20,6 @@ public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
 
-<<<<<<< HEAD
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties().group(PlayerEvolutions.TAB)));
-=======
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -31,7 +28,6 @@ public class RegistryHandler {
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () ->
     new Item(new Item.Properties().group(PlayerEvolutions.TAB)));;
->>>>>>> ff1545f4467d78212c26968fa5b9a751d5c1c359
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
 
@@ -42,18 +38,10 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block",() -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
-<<<<<<< HEAD
             new ScopedCrossbow(new Item.Properties().group(ItemGroup.MISC)));
-
-    public static void init() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-    }
-=======
             new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
             new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB)));
     public static final RegistryObject<Item> ROCKET_AMMO = ITEMS.register("rocket_ammo", () ->
             new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
->>>>>>> ff1545f4467d78212c26968fa5b9a751d5c1c359
 }
