@@ -26,7 +26,7 @@ public class PlayerEvolutions {
     }
     private void clientSetup(final FMLClientSetupEvent event) {
         int sapphireHex = 0x0000FF;
-        int bauxiteHex = 0x9A554A;
+        int bauxiteHex = 0x724640;
 
         Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK.get());
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK_ITEM.get());
