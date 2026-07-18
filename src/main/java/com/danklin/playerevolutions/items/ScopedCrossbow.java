@@ -1,6 +1,5 @@
 package com.danklin.playerevolutions.items;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.CrossbowItem;

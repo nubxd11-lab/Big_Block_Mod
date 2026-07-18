@@ -17,17 +17,11 @@ import org.apache.logging.log4j.Logger;
 public class PlayerEvolutions {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "playerevolutions";
-        public static final ItemGroup TAB = new ItemGroup("playerevolutions_tab") {
-            @Override
-            public ItemStack createIcon() {
-                return new ItemStack(Items.DIAMOND);
-            }
-        };
 
     public PlayerEvolutions() {
-        RegistryHandler.init();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        RegistryHandler.init();
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void clientSetup(final FMLClientSetupEvent event) {
@@ -47,4 +41,10 @@ public class PlayerEvolutions {
     private void doClientStuff(final FMLClientSetupEvent event) {
 
     }
+    public static final ItemGroup TAB = new ItemGroup("playerEvolutions") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(RegistryHandler.RUBY.get());
+        }
+    };
 }
