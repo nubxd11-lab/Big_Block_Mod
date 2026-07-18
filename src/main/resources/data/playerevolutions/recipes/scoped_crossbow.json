@@ -1,19 +1,27 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    "C)R",
-    " . "
-  ],
+"type": "minecraft:crafting_shaped",
+"pattern": [
+" # ",
+"C)R",
+" . "
+],
   "key": {
-    "#": "minecraft:tnt",
-    "C": "minecraft:clock",
-    ")": "minecraft:crossbow",
-    "R": "minecraft:repeater",
-    ".": "minecraft:redstone_block"
+    "#": {
+      "item": "minecraft:tnt"
+    },
+    "C": {
+      "item": "minecraft:clock"
+    },
+    ")": {
+      "item": "minecraft:crossbow"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    },
+    ".": {
+      "item": "minecraft:redstone_block"
+    }
   },
-  "result": {
-    "item": "playerevolutions:scoped_crossbow",
-    "count": 1
-  }
+"result": {"item": "playerevolutions:scoped_crossbow",
+  "count": 1}
 }
