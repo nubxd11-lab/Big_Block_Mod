@@ -1,5 +1,6 @@
 package com.danklin.playerevolutions;
 
+import com.danklin.playerevolutions.util.RegistryHandler;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -23,6 +24,7 @@ public class PlayerEvolutions {
         };
 
     public PlayerEvolutions() {
+        RegistryHandler.init();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
