@@ -64,7 +64,6 @@ public class PlayerEvolutions {
                     woolItemModel = woolWorldModel;
                 }
 
-                // 3. Force your custom Sapphire Block to inherit the found white wool cube parameters
                 if (woolWorldModel != null) {
                     registry.put(new ModelResourceLocation(MOD_ID + ":sapphire_block", ""), woolWorldModel);
                     registry.put(new ModelResourceLocation(MOD_ID + ":sapphire_block", "normal"), woolWorldModel);

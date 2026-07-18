@@ -8,6 +8,7 @@ import com.danklin.playerevolutions.items.ItemBase;
 import com.danklin.playerevolutions.PlayerEvolutions;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,6 +21,7 @@ public class RegistryHandler {
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
     }
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
@@ -31,4 +33,9 @@ public class RegistryHandler {
 
     public static final RegistryObject<Block> BAUXITE_BLOCK = BLOCKS.register("bauxite_block", BauxiteBlock::new);
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block",() -> new BlockItemBase(BAUXITE_BLOCK.get()));
+
+    public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
+            new Item(new Item.Properties().group(ItemGroup.MISC)));
+
+
 }
