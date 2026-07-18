@@ -1,6 +1,7 @@
 package com.danklin.playerevolutions;
 
 import com.danklin.playerevolutions.util.RegistryHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -29,6 +30,16 @@ public class PlayerEvolutions {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         MinecraftForge.EVENT_BUS.register(this);
     }
+    private void clientSetup(final FMLClientSetupEvent event) {
+        int sapphireHex = 0x0000FF;
+        int bauxiteHex = 0x9A554A;
+
+        Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK.get());
+        Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK_ITEM.get());
+        Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> bauxiteHex, RegistryHandler.BAUXITE_BLOCK.get());
+        Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> bauxiteHex, RegistryHandler.BAUXITE_BLOCK_ITEM.get());
+    }
+
 
     private void setup (final FMLCommonSetupEvent event) {
 

@@ -12,15 +12,6 @@ public class BauxiteBlock extends Block {
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(2));
     }
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return "Bauxite Block";
-    }
 }
 
 
