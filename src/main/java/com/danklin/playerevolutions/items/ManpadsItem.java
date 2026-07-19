@@ -25,7 +25,7 @@ public class ManpadsItem extends Item {
     @Override
     public UseAction getUseAction(ItemStack stack)
     {
-        return UseAction.SPEAR;
+        return UseAction.BOW;
     }
     @Override
     public int getUseDuration(ItemStack stack)

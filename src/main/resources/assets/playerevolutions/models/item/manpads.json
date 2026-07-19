@@ -91,27 +91,28 @@
 		}
 	],
 	"display": {
-		"thirdperson_righthand": {
-			"rotation": [0, 90, 0],
-			"translation": [-0.75, 2.25, 4.25]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [0, -88, 0],
-			"translation": [0, 1.75, 4]
-		},
-		"firstperson_righthand": {
-			"rotation": [-35, 73, 0],
-			"translation": [3.5, 3, -1.5]
-		},
-		"firstperson_lefthand": {
-			"rotation": [-46, -84, 0],
-			"translation": [0, 6.25, -0.25]
-		},
-		"gui": {
-			"rotation": [40, -136, 0]
-		},
-		"fixed": {
-			"scale": [1.5, 1.5, 1.5]
-		}
+      "thirdperson_righthand": {
+        "rotation": [0, 90, 0],
+        "translation": [-0.75, 2.25, 4.25]
+      },
+      "thirdperson_lefthand": {
+        "rotation": [0, -88, 0],
+        "translation": [0, 1.75, 4]
+      },
+      "firstperson_righthand": {
+        "rotation": [18, 103, 0],
+        "translation": [4.5, 4.5, -2.5],
+        "scale": [0.5, 1, 1]
+      },
+      "firstperson_lefthand": {
+        "rotation": [-49, -101, -10],
+        "translation": [7.75, 2.5, 0.5]
+      },
+      "gui": {
+        "rotation": [40, -136, 0]
+      },
+      "fixed": {
+        "scale": [1.5, 1.5, 1.5]
+      }
 	}
 }

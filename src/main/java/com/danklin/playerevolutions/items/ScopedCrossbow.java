@@ -1,11 +1,11 @@
 package com.danklin.playerevolutions.items;
 
+import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.util.RegistryHandler;
+import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
-import net.minecraft.item.CrossbowItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
@@ -14,8 +14,13 @@ import net.minecraft.world.World;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import java.awt.*;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+import java.awt.*;
+@Mod.EventBusSubscriber(modid = PlayerEvolutions.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ScopedCrossbow extends CrossbowItem {
 
     float power;
@@ -30,6 +35,21 @@ public class ScopedCrossbow extends CrossbowItem {
         }
         return super.canApplyAtEnchantingTable(stack, enchantment);
     }
+
+    @SubscribeEvent
+    public static void onPlayerRenderPre(RenderPlayerEvent.Pre event) {
+        PlayerEntity player = event.getPlayer();
+        ItemStack mainStack = player.getHeldItemMainhand();
+        ItemStack offStack = player.getHeldItemOffhand();
+
+        if (mainStack.getItem() == RegistryHandler.SCOPED_CROSSBOW.get() && CrossbowItem.isCharged(mainStack)) {
+            event.getRenderer().getEntityModel().rightArmPose = BipedModel.ArmPose.CROSSBOW_HOLD;
+        }
+        else if (offStack.getItem() == RegistryHandler.SCOPED_CROSSBOW.get() && CrossbowItem.isCharged(offStack)) {
+            event.getRenderer().getEntityModel().leftArmPose = BipedModel.ArmPose.CROSSBOW_HOLD;
+        }
+    }
+
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, net.minecraft.entity.LivingEntity entityLiving, int timeLeft) {
         int i = this.getUseDuration(stack) - timeLeft;
