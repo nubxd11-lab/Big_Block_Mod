@@ -2,12 +2,12 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "block/stud_1_texture",
-		"1": "block/stud_2_texture",
-		"2": "block/stud_3_texture",
-		"3": "block/stud_4_texture",
-		"4": "block/base_texture",
-		"particle": "block/stud_1_texture"
+		"0": "playerevolutions:blocks/stud_1_texture",
+		"1": "playerevolutions:blocks/stud_2_texture",
+		"2": "playerevolutions:blocks/stud_3_texture",
+		"3": "playerevolutions:blocks/stud_4_texture",
+		"4": "playerevolutions:blocks/base_texture",
+		"particle": "playerevolutions:blocks/stud_1_texture"
 	},
 	"elements": [
 		{
@@ -110,5 +110,15 @@
 		"on_shelf": {
 			"scale": [0.8, 0.8, 0.8]
 		}
-	}
+	},
+	"groups": [
+		0,
+		{
+			"name": "studs",
+			"origin": [0, 0, 0],
+			"scope": 0,
+			"color": 0,
+			"children": [1, 2, 3, 4]
+		}
+	]
 }
