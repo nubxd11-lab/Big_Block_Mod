@@ -27,11 +27,14 @@ public class PlayerEvolutions {
     private void clientSetup(final FMLClientSetupEvent event) {
         int sapphireHex = 0x0000FF;
         int bauxiteHex = 0x724640;
+        int redLegoHex = 0xFF0000;
 
         Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK.get());
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK_ITEM.get());
         Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> bauxiteHex, RegistryHandler.BAUXITE_BLOCK.get());
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> bauxiteHex, RegistryHandler.BAUXITE_BLOCK_ITEM.get());
+        Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> redLegoHex, RegistryHandler.RED_LEGO_BLOCK.get());
+        Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> redLegoHex, RegistryHandler.RED_LEGO_BLOCK_ITEM.get());
     }
 
 
