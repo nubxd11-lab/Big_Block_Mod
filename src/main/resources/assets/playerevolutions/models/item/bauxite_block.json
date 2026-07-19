@@ -1,6 +1,3 @@
 {
-	"parent": "playerevolutions:blocks/bauxite_block",
-	"textures": {
-		"layer0": "playerevolutions:blocks/bauxite_texture"
-	}
+	"parent": "playerevolutions:blocks/bauxite_block"
 }
