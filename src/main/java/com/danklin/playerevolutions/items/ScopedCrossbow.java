@@ -30,9 +30,6 @@ public class ScopedCrossbow extends CrossbowItem {
         }
         return super.canApplyAtEnchantingTable(stack, enchantment);
     }
-
-
-
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, net.minecraft.entity.LivingEntity entityLiving, int timeLeft) {
         int i = this.getUseDuration(stack) - timeLeft;

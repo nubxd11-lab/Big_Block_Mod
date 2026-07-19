@@ -7,20 +7,31 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-
+import java.awt.*;
 import java.util.Optional;
 
 public class ManpadsItem extends Item {
+
+    @Override
+    public UseAction getUseAction(ItemStack stack)
+    {
+        return UseAction.SPEAR;
+    }
+    @Override
+    public int getUseDuration(ItemStack stack)
+    {
+        return 7200;
+    }
 
     public ManpadsItem(Properties properties) {
         super(properties);
@@ -47,10 +58,8 @@ public class ManpadsItem extends Item {
             }
         }
     }
-    // Runs 20 times a second while the item is in the player's inventory
     @Override
     public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        // Only run logic on the server, and only if the player is actively holding the ite
         if (worldIn.isRemote || !(entityIn instanceof PlayerEntity) || !isSelected) return;
 
         PlayerEntity player = (PlayerEntity) entityIn;
@@ -65,10 +74,8 @@ public class ManpadsItem extends Item {
         double closestDist = Double.MAX_VALUE;
 
         boolean skip = false;
-        // 2. See what the laser hits
         for (Entity ent : worldIn.getEntitiesWithinAABB(Entity.class, aabb, (e) -> e != player && e.isAlive())) {
 
-            // Allow locking onto flying mobs OR projectiles
             boolean isTargetable = ent instanceof net.minecraft.entity.monster.PhantomEntity
                     || ent instanceof net.minecraft.entity.monster.GhastEntity
                     || ent instanceof net.minecraft.entity.monster.BlazeEntity
@@ -80,19 +87,30 @@ public class ManpadsItem extends Item {
                     || ent instanceof net.minecraft.entity.passive.BeeEntity
                     || ent instanceof net.minecraft.entity.IProjectile
                     || ent instanceof net.minecraft.entity.projectile.ShulkerBulletEntity
-                    || ent instanceof net.minecraft.entity.projectile.DamagingProjectileEntity;
+                    || ent instanceof net.minecraft.entity.projectile.DamagingProjectileEntity
+                    ||(ent instanceof net.minecraft.entity.player.PlayerEntity && ((net.minecraft.entity.player.PlayerEntity) ent).isElytraFlying());
             if(ent instanceof net.minecraft.entity.IProjectile)
             {
                 skip = true;
             }
             if (isTargetable) {
-                // Expand the hitbox slightly to make aiming more forgiving
                 AxisAlignedBB entBox = ent.getBoundingBox().grow(1.5D);
                 Optional<Vec3d> hit = entBox.rayTrace(eyePos, endPos);
 
                 if (hit.isPresent()) {
+
+                    RayTraceContext context = new RayTraceContext(
+                            eyePos,
+                            hit.get(),
+                            RayTraceContext.BlockMode.COLLIDER,
+                            RayTraceContext.FluidMode.NONE,
+                            player
+                    );
+
+                    BlockRayTraceResult blockHit = worldIn.rayTraceBlocks(context);
+
                     double dist = eyePos.squareDistanceTo(hit.get());
-                    if (dist < closestDist) {
+                    if (dist < closestDist && blockHit.getType() == RayTraceResult.Type.MISS) {
                         closestDist = dist;
                         currentTarget = ent;
                     }
@@ -100,13 +118,10 @@ public class ManpadsItem extends Item {
             }
         }
 
-        // 3. Process the Lock-On Logic
         int savedTargetId = nbt.getInt("TargetID");
         int lockTicks = nbt.getInt("LockTicks");
-
         if (currentTarget != null) {
             if (currentTarget.getEntityId() == savedTargetId) {
-                // The player is tracking the SAME target. Increment the timer.
                 if (lockTicks < 10) { // 10 ticks = 0.5 seconds
                     lockTicks++;
 
@@ -137,19 +152,20 @@ public class ManpadsItem extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack stack = playerIn.getHeldItem(handIn);
-        CompoundNBT nbt = stack.getOrCreateTag();
-        boolean isCreative = playerIn.abilities.isCreativeMode;
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
         if (!worldIn.isRemote) {
+            PlayerEntity playerIn = (PlayerEntity) entityLiving;
+            CompoundNBT nbt = stack.getOrCreateTag();
+
             if (nbt.getInt("LockTicks") >= 10) {
 
+                boolean isCreative = playerIn.isCreative();
                 int targetId = nbt.getInt("TargetID");
                 Entity target = worldIn.getEntityByID(targetId);
                 if (!isCreative && !hasAmmo(playerIn)) {
                     playerIn.sendStatusMessage(new StringTextComponent("OUT OF AMMO!").applyTextStyle(TextFormatting.DARK_RED), true);
                     worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    return ActionResult.resultFail(stack);
+                    return;
                 }
                 if (target != null && target.isAlive()) {
 
@@ -166,7 +182,7 @@ public class ManpadsItem extends Item {
                     // Reset the lock after firing
                     nbt.putInt("LockTicks", 0);
                     nbt.putInt("TargetID", -1);
-                    return ActionResult.resultSuccess(stack);
+                    return;
                 }
             } else {
                 playerIn.getCooldownTracker().setCooldown(this, 10);
@@ -175,6 +191,37 @@ public class ManpadsItem extends Item {
             }
         }
 
-        return ActionResult.resultFail(stack);
+        return;
+
+
+
+
     }
+
+
+
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        ItemStack stack = playerIn.getHeldItem(handIn);
+        if (handIn != Hand.MAIN_HAND) {
+            return ActionResult.resultFail(stack);
+        }
+        CompoundNBT nbt = stack.getOrCreateTag();
+        boolean isCreative = playerIn.abilities.isCreativeMode;
+        if (!isCreative && !hasAmmo(playerIn)) {
+            playerIn.sendStatusMessage(new StringTextComponent("OUT OF AMMO!").applyTextStyle(TextFormatting.DARK_RED), true);
+            worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            return ActionResult.resultFail(stack);
+        }
+
+        playerIn.setActiveHand(handIn);
+        return ActionResult.resultConsume(stack);
+
+    }
+
+    @Override
+    public String getTranslationKey() {
+        return "Manpads";
+    }
+
 }

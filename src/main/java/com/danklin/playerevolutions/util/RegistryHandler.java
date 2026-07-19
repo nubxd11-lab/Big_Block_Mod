@@ -38,7 +38,6 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block",() -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
-            new ScopedCrossbow(new Item.Properties().group(ItemGroup.MISC)));
             new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
             new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB)));

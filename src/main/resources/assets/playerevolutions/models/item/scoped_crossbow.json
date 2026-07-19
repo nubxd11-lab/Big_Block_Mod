@@ -75,14 +75,14 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [-1.75, 20.25, 0]
+			"translation": [-1.75, 5.25, 0]
 		},
 		"thirdperson_lefthand": {
 			"translation": [2.25, 5.5, 2]
 		},
 		"firstperson_righthand": {
 			"rotation": [0, -9, 0],
-			"translation": [2.25, 10, 6.25]
+			"translation": [2.25, 12, 6.25]
 		}
 	}
 }
