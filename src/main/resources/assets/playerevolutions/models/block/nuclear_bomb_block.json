@@ -1,10 +1,9 @@
 {
-	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "block/nuclear_bomb_texture",
-		"particle": "block/nuclear_bomb_texture"
+		"0": "playerevolutions:blocks/nuclear_bomb_texture",
+		"particle": "playerevolutions:blocks/nuclear_bomb_texture"
 	},
 	"elements": [
 		{

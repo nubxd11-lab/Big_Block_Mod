@@ -2,6 +2,7 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.items.ItemBase;
 import com.danklin.playerevolutions.items.ManpadsItem;
 import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
@@ -21,9 +22,7 @@ public class RegistryHandler {
 
     }
 
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () ->
-    new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
-    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = BLOCKS.register("sapphire_block", SapphireBlock::new);
@@ -41,4 +40,7 @@ public class RegistryHandler {
 
     public static final RegistryObject<Block> RED_LEGO_BLOCK = BLOCKS.register("red_lego_block", RedLegoBlock::new);
     public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block", () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
+
+    public static final RegistryObject<Block> NUCLEAR_BOMB_BLOCK = BLOCKS.register("nuclear_bomb_block", NuclearBombBlock::new);
+    public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_block_block", () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
 }
