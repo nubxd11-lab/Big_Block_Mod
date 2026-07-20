@@ -34,7 +34,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow",  () ->
             new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
-            new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB)));
+            new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
     public static final RegistryObject<Item> ROCKET_AMMO = ITEMS.register("rocket_ammo", () ->
             new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
 
@@ -42,5 +42,5 @@ public class RegistryHandler {
     public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block", () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
 
     public static final RegistryObject<Block> NUCLEAR_BOMB_BLOCK = BLOCKS.register("nuclear_bomb_block", NuclearBombBlock::new);
-    public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_block_block", () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
+    public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_bomb_block", () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
 }
