@@ -28,6 +28,7 @@ public class PlayerEvolutions {
         int sapphireHex = 0x0000FF;
         int bauxiteHex = 0x724640;
         int redLegoHex = 0xFF0000;
+        int nuclearBombHex = 0xFFFF00;
 
         Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK.get());
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> sapphireHex, RegistryHandler.SAPPHIRE_BLOCK_ITEM.get());
@@ -35,6 +36,8 @@ public class PlayerEvolutions {
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> bauxiteHex, RegistryHandler.BAUXITE_BLOCK_ITEM.get());
         Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> redLegoHex, RegistryHandler.RED_LEGO_BLOCK.get());
         Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> redLegoHex, RegistryHandler.RED_LEGO_BLOCK_ITEM.get());
+        Minecraft.getInstance().getBlockColors().register((state, view, pos, tintIndex) -> nuclearBombHex, RegistryHandler.NUCLEAR_BOMB_BLOCK.get());
+        Minecraft.getInstance().getItemColors().register((stack, tintIndex) -> nuclearBombHex, RegistryHandler.NUCLEAR_BOMB_BLOCK_ITEM.get());
     }
 
 
