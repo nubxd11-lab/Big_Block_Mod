@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "playerevolutions:ruby_block_placed",
+  "features": "playerevolutions:sapphire_block_placed",
   "step": "underground_ores"
 }

@@ -7,6 +7,9 @@ import com.danklin.playerevolutions.items.ManpadsItem;
 import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,11 +18,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
+    public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, PlayerEvolutions.MOD_ID);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
+        TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
@@ -43,4 +48,14 @@ public class RegistryHandler {
 
     public static final RegistryObject<Block> NUCLEAR_BOMB_BLOCK = BLOCKS.register("nuclear_bomb_block", NuclearBombBlock::new);
     public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_bomb_block", () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
+    public static final RegistryObject<TileEntityType<NuclearBombBlock.BombTileEntity>> NUCLEAR_BOMB_BLOCK_TILE =
+            TILE_ENTITIES.register("nuclear_bomb_tile", () ->
+                    TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
+            );
+    @SubscribeEvent
+    public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
+        event.getRegistry().registerAll(
+                ModBlocks.NUCLEAR_BOMB_BLOCK.get() // or new NuclearBombBlock(...) if using standard Register
+        );
+    }
 }
