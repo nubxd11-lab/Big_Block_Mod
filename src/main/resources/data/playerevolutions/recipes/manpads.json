@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#G#",
+    "CIR",
+    ".I "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "C": {
+      "item": "minecraft:comparator"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "R": {
+      "item": "minecraft:repeater"
+    },
+    ".": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "result": {"item": "playerevolutions:manpads",
+    "count": 1}
+}

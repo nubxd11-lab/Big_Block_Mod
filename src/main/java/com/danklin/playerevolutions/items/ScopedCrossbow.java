@@ -5,6 +5,7 @@ import com.danklin.playerevolutions.util.RegistryHandler;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SnowballEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -115,6 +116,7 @@ public class ScopedCrossbow extends CrossbowItem {
         if (isCharged(itemstack)) {
             if (!worldIn.isRemote) {
 
+                itemstack.damageItem(1, playerIn, (p) -> {});
                 int powerEnchantLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, itemstack);
                 SnowballEntity projectile = new SnowballEntity(worldIn, playerIn);
                 projectile.setItem(new ItemStack(Items.TNT));
