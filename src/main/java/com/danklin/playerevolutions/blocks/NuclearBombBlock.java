@@ -106,7 +106,7 @@ public class NuclearBombBlock extends Block {
         }
         public void ignite() {
             if (this.fuseTicks == -1) {
-                this.fuseTicks = 80; 
+                this.fuseTicks = 80;
                 if (this.world != null) {
                     this.world.playSound(null, this.pos, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 }
