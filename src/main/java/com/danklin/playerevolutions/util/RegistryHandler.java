@@ -8,8 +8,6 @@ import com.danklin.playerevolutions.items.ScopedCrossbow;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -52,10 +50,4 @@ public class RegistryHandler {
             TILE_ENTITIES.register("nuclear_bomb_tile", () ->
                     TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
             );
-    @SubscribeEvent
-    public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(
-                ModBlocks.NUCLEAR_BOMB_BLOCK.get() // or new NuclearBombBlock(...) if using standard Register
-        );
-    }
 }
