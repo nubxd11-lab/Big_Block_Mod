@@ -38,7 +38,7 @@ public class RegistryHandler {
             new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB).maxDamage(16)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
             new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
-    public static final RegistryObject<Item> ROCKET_AMMO = ITEMS.register("rocket_ammo", () ->
+    public static final RegistryObject<Item> MANPADS_AMMO = ITEMS.register("manpads_ammo", () ->
             new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
 
     public static final RegistryObject<Block> RED_LEGO_BLOCK = BLOCKS.register("red_lego_block", RedLegoBlock::new);

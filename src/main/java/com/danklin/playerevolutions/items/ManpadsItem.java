@@ -38,7 +38,7 @@ public class ManpadsItem extends Item {
     }
     private boolean hasAmmo(PlayerEntity player) {
         for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
-            if (player.inventory.getStackInSlot(i).getItem() == RegistryHandler.ROCKET_AMMO.get()) {
+            if (player.inventory.getStackInSlot(i).getItem() == RegistryHandler.MANPADS_AMMO.get()) {
                 return true;
             }
         }
@@ -49,7 +49,7 @@ public class ManpadsItem extends Item {
     private void consumeAmmo(PlayerEntity player) {
         for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
             ItemStack stack = player.inventory.getStackInSlot(i);
-            if (stack.getItem() == RegistryHandler.ROCKET_AMMO.get()) {
+            if (stack.getItem() == RegistryHandler.MANPADS_AMMO.get()) {
                 stack.shrink(1);
                 if (stack.isEmpty()) {
                     player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);

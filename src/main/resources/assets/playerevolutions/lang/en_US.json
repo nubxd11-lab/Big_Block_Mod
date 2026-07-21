@@ -7,5 +7,6 @@
   "block.playerevolutions.nuclear_bomb_block": "Nuclear Bomb",
   "itemGroup.playerevolutions": "Player Evolutions",
   "item.playerevolutions.scoped_crossbow": "Scoped Crossbow",
-  "item.playerevolutions.manpads_item": "MANPADS Launcher"
+  "item.playerevolutions.manpads_item": "MANPADS Launcher",
+  "item.playerevolutions.manpads_ammo": "MANPADS Ammo"
 }
