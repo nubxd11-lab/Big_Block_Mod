@@ -2,9 +2,9 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "playerevolutions:items/texture",
-		"1": "playerevolutions:items/texture2",
-		"particle": "playerevolutions:items/texture"
+		"0": "playerevolutions:items/scoped_crossbow_texture",
+		"1": "playerevolutions:items/scoped_crossbow_texture2",
+		"particle": "playerevolutions:items/scoped_crossbow_texture"
 	},
 	"elements": [
 		{

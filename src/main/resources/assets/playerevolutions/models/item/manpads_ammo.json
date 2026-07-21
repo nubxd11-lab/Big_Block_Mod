@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "playerevolutions:items/manpad_ammo_spikey_part_texture",
-		"1": "playerevolutions:items/manpad_ammo_base_texture",
-		"2": "playerevolutions:items/manpad_ammo_stem_texture",
-		"particle": "playerevolutions:items/manpad_ammo_spikey_part_texture"
+		"0": "playerevolutions:items/manpads_ammo_spikey_part_texture",
+		"1": "playerevolutions:items/manpads_ammo_base_texture",
+		"2": "playerevolutions:items/manpads_ammo_stem_texture",
+		"particle": "playerevolutions:items/manpads_ammo_spikey_part_texture"
 	},
 	"elements": [
 		{
