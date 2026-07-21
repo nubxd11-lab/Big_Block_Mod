@@ -7,7 +7,7 @@
 		"2": "playerevolutions:blocks/red_lego_stud_3_texture",
 		"3": "playerevolutions:blocks/red_lego_stud_4_texture",
 		"4": "playerevolutions:blocks/red_lego_base_texture",
-		"particle": "playerevolutions:blocks/stud_1_texture"
+		"particle": "playerevolutions:blocks/red_lego_stud_1_texture"
 	},
 	"elements": [
 		{

@@ -45,7 +45,6 @@ public class ManpadsItem extends Item {
         return false;
     }
 
-    // Removes exactly 1 rocket from the player's inventory
     private void consumeAmmo(PlayerEntity player) {
         for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
             ItemStack stack = player.inventory.getStackInSlot(i);
