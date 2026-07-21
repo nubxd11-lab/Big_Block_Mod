@@ -25,7 +25,8 @@ public class RegistryHandler {
         TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));
+    public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = BLOCKS.register("sapphire_block", SapphireBlock::new);
@@ -34,7 +35,7 @@ public class RegistryHandler {
     public static final RegistryObject<Block> BAUXITE_BLOCK = BLOCKS.register("bauxite_block", BauxiteBlock::new);
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block", () -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
-    public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow",  () ->
+    public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
             new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB).maxDamage(16)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
             new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
@@ -50,4 +51,6 @@ public class RegistryHandler {
             TILE_ENTITIES.register("nuclear_bomb_tile", () ->
                     TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
             );
+    public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast", () ->
+            new Item(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
 }
