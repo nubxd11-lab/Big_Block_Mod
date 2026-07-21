@@ -95,6 +95,7 @@ public class NuclearBombBlock extends Block {
     @Override
     public void onBlockExploded(BlockState state, World world, BlockPos pos, Explosion explosion) {
         if (!world.isRemote()) {
+            world.removeBlock(pos, false);
             this.triggerIgnition(world, pos);
         }
     }
