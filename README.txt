@@ -1,12 +1,14 @@
 #  Project Title
 
-This is my mod, which I just code fun things here.
+This is my mod, which my friend and I just code fun things here.
 
 ##  About This Project
 
 I have always wanted to enjoy Minecraft with my friend.
-But I wanted to enjoy it our own way. Then I started to learn coding so that I can make a mod.
-And here I am, presenting you with this mod.
+But I wanted to enjoy it our own way.
+Then I started to learn coding so that I can make a mod.
+My friend has helped mea lot, so I shall thank him here.
+And here I am, presenting to you this mod.
 
 ##  Tech Stack
 **Language** : Java

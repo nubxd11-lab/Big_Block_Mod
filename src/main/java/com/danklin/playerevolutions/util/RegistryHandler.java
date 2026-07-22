@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -63,7 +64,7 @@ public class RegistryHandler {
             () -> new AirBlast(new Item.Properties().maxStackSize(1)));
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade",
-            () -> new Grenade());
+            () -> new Grenade(new Item.Properties().group(ItemGroup.COMBAT)));
     public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITIES.register("grenade",
             () -> EntityType.Builder.<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC)
                     .size(0.25F, 0.25F)
