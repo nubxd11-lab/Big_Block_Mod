@@ -2,9 +2,7 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
-import com.danklin.playerevolutions.items.ItemBase;
-import com.danklin.playerevolutions.items.ManpadsItem;
-import com.danklin.playerevolutions.items.ScopedCrossbow;
+import com.danklin.playerevolutions.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -51,6 +49,9 @@ public class RegistryHandler {
             TILE_ENTITIES.register("nuclear_bomb_tile", () ->
                     TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
             );
-    public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast", () ->
-            new Item(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
+    public static final RegistryObject<Item> NUCLEAR_BOMB_REMOTE_CONTROLLER = ITEMS.register("nuclear_bomb_remote_controller",
+            () -> new NuclearBombRemoteController(new Item.Properties().maxStackSize(1)));
+
+    public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast",
+            () -> new AirBlast(new Item.Properties().maxStackSize(1)));
 }

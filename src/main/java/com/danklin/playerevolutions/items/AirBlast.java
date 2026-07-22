@@ -15,39 +15,35 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-
 import java.util.List;
 
 public class AirBlast extends Item {
-    public AirBlast() {
-        super(new Item.Properties().maxStackSize(1));
-    }
 
     public AirBlast(Properties properties) {
-        super(properties.maxStackSize(1));
+        super(properties);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
-
+        System.out.println("--> AirBlast right-click triggered! World remote: " + worldIn.isRemote());
         playerIn.swingArm(handIn);
 
         if (!worldIn.isRemote()) {
-            double range = 8.0D;
+            double range = 10.0D;
             Vec3d lookVec = playerIn.getLookVec();
             Vec3d playerEyePos = playerIn.getEyePosition(1.0F);
 
             if (worldIn instanceof ServerWorld) {
                 ServerWorld serverWorld = (ServerWorld) worldIn;
                 for (int i = 1; i <= 6; i++) {
-                    double dist = i * 0.8D;
+                    double dist = i * 1.0D;
                     serverWorld.spawnParticle(
                             ParticleTypes.CLOUD,
                             playerEyePos.x + lookVec.x * dist,
                             playerEyePos.y + lookVec.y * dist,
                             playerEyePos.z + lookVec.z * dist,
-                            3, 0.2D, 0.2D, 0.2D, 0.05D
+                            4, 0.3D, 0.3D, 0.3D, 0.05D
                     );
                 }
             }
@@ -59,30 +55,31 @@ public class AirBlast extends Item {
                 if (target == playerIn) continue;
 
                 Vec3d targetCenter = target.getBoundingBox().getCenter();
-                double distanceSq = playerEyePos.squareDistanceTo(targetCenter);
+                Vec3d dirToTarget = targetCenter.subtract(playerEyePos);
 
-                if (distanceSq <= range * range) {
-                    Vec3d targetVec = targetCenter.subtract(playerEyePos).normalize();
+                if (dirToTarget.lengthSquared() <= range * range) {
+                    Vec3d targetVecNormalized = dirToTarget.normalize();
 
-                    if (lookVec.dotProduct(targetVec) > -0.2D) {
+                    if (lookVec.dotProduct(targetVecNormalized) > -0.5D) {
 
                         if (target instanceof LivingEntity) {
-                            target.attackEntityFrom(DamageSource.causePlayerDamage(playerIn), 4.0F);
+                            target.attackEntityFrom(DamageSource.causePlayerDamage(playerIn), 2.0F);
                         }
-                        double knockbackPower = 15.0D;
+
+                        double knockbackPower = 20.0D;
                         target.setMotion(
                                 lookVec.x * knockbackPower,
-                                2.0D + (lookVec.y * 0.5D),
+                                1.0D + (lookVec.y * 0.5D),
                                 lookVec.z * knockbackPower
                         );
+                        target.velocityChanged = true;
                     }
-                    target.velocityChanged = true;
                 }
             }
+
             worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(),
                     SoundEvents.ENTITY_ENDER_DRAGON_FLAP, SoundCategory.PLAYERS, 1.0F, 1.5F);
         }
-
         return ActionResult.resultSuccess(itemstack);
     }
 }

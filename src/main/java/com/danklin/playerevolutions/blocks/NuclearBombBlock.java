@@ -103,6 +103,18 @@ public class NuclearBombBlock extends Block {
                 }
             }
         }
+        public void defuse() {
+            if (this.fuseTicks > 0) {
+                this.fuseTicks = -1;
+                if (this.world != null) {
+                    this.world.playSound(null, this.pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 1.2F);
+                }
+            }
+        }
+
+        public boolean isIgnited() {
+            return this.fuseTicks > 0;
+        }
 
         @Override
         public void tick() {

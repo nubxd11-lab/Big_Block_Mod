@@ -5,8 +5,10 @@
   "block.playerevolutions.bauxite_block": "Block of Bauxite",
   "block.playerevolutions.red_lego_block": "Block of Red Lego",
   "block.playerevolutions.nuclear_bomb_block": "Nuclear Bomb",
+  "item.playerevolutions.nuclear_bomb_remote_controller": "Nuclear Bomb Remote Controller",
   "itemGroup.playerevolutions": "Player Evolutions",
   "item.playerevolutions.scoped_crossbow": "Scoped Crossbow",
   "item.playerevolutions.manpads_item": "MANPADS Launcher",
-  "item.playerevolutions.manpads_ammo": "MANPADS Ammo"
+  "item.playerevolutions.manpads_ammo": "MANPADS Ammo",
+  "item.playerevolutions.air_blast": "Air Blast"
 }
