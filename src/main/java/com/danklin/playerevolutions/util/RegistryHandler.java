@@ -2,16 +2,21 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.entities.GrenadeEntity;
 import com.danklin.playerevolutions.items.*;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class RegistryHandler {
+    public static final String MOD_ID = "playerevolutions";
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, PlayerEvolutions.MOD_ID);
@@ -19,9 +24,11 @@ public class RegistryHandler {
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-
         TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
+
+    public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
@@ -54,4 +61,12 @@ public class RegistryHandler {
 
     public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast",
             () -> new AirBlast(new Item.Properties().maxStackSize(1)));
+
+    public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade",
+            () -> new Grenade());
+    public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITIES.register("grenade",
+            () -> EntityType.Builder.<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC)
+                    .size(0.25F, 0.25F)
+                    .setCustomClientFactory((spawnEntity, world) -> new GrenadeEntity(RegistryHandler.GRENADE_ENTITY.get(), world))
+                    .build("grenade"));
 }

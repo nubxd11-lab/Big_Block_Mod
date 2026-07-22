@@ -1,0 +1,165 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "playerevolutions:items/grenade_detonator_texture",
+		"1": "playerevolutions:items/grenade_fuse_texture",
+		"particle": "playerevolutions:items/grenade_detonator_texture"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 6],
+			"to": [10, 2, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [2, 10, 4, 11], "texture": "#0"},
+				"east": {"uv": [5, 11, 7, 12], "texture": "#0"},
+				"south": {"uv": [11, 5, 13, 6], "texture": "#0"},
+				"west": {"uv": [11, 6, 13, 7], "texture": "#0"},
+				"up": {"uv": [6, 11, 4, 9], "texture": "#0"},
+				"down": {"uv": [8, 9, 6, 11], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 2, 5],
+			"to": [11, 4, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 0, 5]},
+			"faces": {
+				"north": {"uv": [10, 0, 13, 1], "texture": "#0"},
+				"east": {"uv": [10, 1, 13, 2], "texture": "#0"},
+				"south": {"uv": [10, 2, 13, 3], "texture": "#0"},
+				"west": {"uv": [10, 9, 13, 10], "texture": "#0"},
+				"up": {"uv": [7, 3, 4, 0], "texture": "#0"},
+				"down": {"uv": [7, 3, 4, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 4, 4],
+			"to": [12, 8, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [7, 3, 11, 5], "texture": "#0"},
+				"east": {"uv": [7, 5, 11, 7], "texture": "#0"},
+				"south": {"uv": [7, 7, 11, 9], "texture": "#0"},
+				"west": {"uv": [0, 8, 4, 10], "texture": "#0"},
+				"up": {"uv": [4, 4, 0, 0], "texture": "#0"},
+				"down": {"uv": [4, 4, 0, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 8, 5],
+			"to": [11, 10, 11],
+			"faces": {
+				"north": {"uv": [10, 10, 13, 11], "texture": "#0"},
+				"east": {"uv": [2, 11, 5, 12], "texture": "#0"},
+				"south": {"uv": [11, 3, 14, 4], "texture": "#0"},
+				"west": {"uv": [11, 4, 14, 5], "texture": "#0"},
+				"up": {"uv": [7, 9, 4, 6], "texture": "#0"},
+				"down": {"uv": [10, 0, 7, 3], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 10, 6],
+			"to": [10, 12, 10],
+			"faces": {
+				"north": {"uv": [7, 11, 9, 12], "texture": "#0"},
+				"east": {"uv": [11, 7, 13, 8], "texture": "#0"},
+				"south": {"uv": [11, 8, 13, 9], "texture": "#0"},
+				"west": {"uv": [9, 11, 11, 12], "texture": "#0"},
+				"up": {"uv": [10, 11, 8, 9], "texture": "#0"},
+				"down": {"uv": [2, 10, 0, 12], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 12, 7],
+			"to": [9, 15, 9],
+			"faces": {
+				"north": {"uv": [0, 4, 2, 7], "texture": "#1"},
+				"east": {"uv": [2, 4, 4, 7], "texture": "#1"},
+				"south": {"uv": [4, 4, 6, 7], "texture": "#1"},
+				"west": {"uv": [6, 0, 8, 3], "texture": "#1"},
+				"up": {"uv": [8, 7, 6, 5], "texture": "#1"},
+				"down": {"uv": [2, 7, 0, 9], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 15, 7],
+			"to": [13, 16, 9],
+			"faces": {
+				"north": {"uv": [6, 3, 12, 4], "texture": "#1"},
+				"east": {"uv": [6, 7, 8, 8], "texture": "#1"},
+				"south": {"uv": [6, 4, 12, 5], "texture": "#1"},
+				"west": {"uv": [8, 0, 10, 1], "texture": "#1"},
+				"up": {"uv": [6, 2, 0, 0], "texture": "#1"},
+				"down": {"uv": [6, 2, 0, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [13, 13.5, 7],
+			"to": [14, 15.5, 9],
+			"faces": {
+				"north": {"uv": [8, 1, 9, 3], "texture": "#1"},
+				"east": {"uv": [2, 7, 4, 9], "texture": "#1"},
+				"south": {"uv": [8, 5, 9, 7], "texture": "#1"},
+				"west": {"uv": [4, 7, 6, 9], "texture": "#1"},
+				"up": {"uv": [7, 10, 6, 8], "texture": "#1"},
+				"down": {"uv": [8, 8, 7, 10], "texture": "#1"}
+			}
+		},
+		{
+			"from": [12, 12.5, 7],
+			"to": [13, 13.5, 9],
+			"faces": {
+				"north": {"uv": [9, 1, 10, 2], "texture": "#1"},
+				"east": {"uv": [8, 7, 10, 8], "texture": "#1"},
+				"south": {"uv": [2, 9, 3, 10], "texture": "#1"},
+				"west": {"uv": [8, 8, 10, 9], "texture": "#1"},
+				"up": {"uv": [1, 11, 0, 9], "texture": "#1"},
+				"down": {"uv": [2, 9, 1, 11], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 1.75, 0],
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 1.75, 0],
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"ground": {
+			"translation": [0, 2.1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [-8, 145, -8],
+			"translation": [0.5, 0, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"fixed": {
+			"scale": [0.8, 0.8, 0.8]
+		}
+	},
+	"groups": [
+		{
+			"name": "detonator",
+			"origin": [7, 0, 7],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1, 2, 3, 4]
+		},
+		{
+			"name": "fuse",
+			"origin": [0, 0, 0],
+			"scope": 0,
+			"color": 0,
+			"children": [5, 6, 7, 8]
+		}
+	]
+}

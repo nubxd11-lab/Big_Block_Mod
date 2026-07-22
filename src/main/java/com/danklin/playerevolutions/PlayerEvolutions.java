@@ -1,10 +1,13 @@
 package com.danklin.playerevolutions;
 
 import com.danklin.playerevolutions.util.RegistryHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,9 +25,16 @@ public class PlayerEvolutions {
     public PlayerEvolutions() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         if (FMLEnvironment.dist == Dist.CLIENT) {
-            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        }        RegistryHandler.init();
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
+        }
+        RegistryHandler.init();
         MinecraftForge.EVENT_BUS.register(this);
+    }
+    private void onClientSetup(final FMLClientSetupEvent event) {
+        RenderingRegistry.registerEntityRenderingHandler(
+                RegistryHandler.GRENADE_ENTITY.get(),
+                renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer())
+        );
     }
 
     private void setup (final FMLCommonSetupEvent event) {
