@@ -4,6 +4,7 @@ import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
 import com.danklin.playerevolutions.items.*;
+import com.danklin.playerevolutions.tileentities.MortarTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -31,7 +32,7 @@ public class RegistryHandler {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
 
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new ItemBase(new Item.Properties()));
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
     public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
 
@@ -70,4 +71,10 @@ public class RegistryHandler {
                     .size(0.25F, 0.25F)
                     .setCustomClientFactory((spawnEntity, world) -> new GrenadeEntity(RegistryHandler.GRENADE_ENTITY.get(), world))
                     .build("grenade"));
+
+    public static final RegistryObject<Block> MORTAR = BLOCKS.register("mortar", Mortar::new);
+    public static final RegistryObject<Item> MORTAR_ITEM = ITEMS.register("mortar", () -> new BlockItemBase(MORTAR.get()));
+    public static final RegistryObject<TileEntityType<MortarTileEntity>> MORTAR_TILE_ENTITY = TILE_ENTITIES.register("mortar",
+            () -> TileEntityType.Builder.create(MortarTileEntity::new, MORTAR.get()).build(null));
+
 }

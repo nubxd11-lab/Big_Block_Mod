@@ -13,5 +13,3 @@ public class BauxiteBlock extends Block {
                 .harvestLevel(2));
     }
 }
-
-
