@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -41,20 +40,17 @@ public class PacketFireMortar {
 
                 boolean hasGrenade = player.isCreative();
 
-                // 1. If not creative, search inventory and consume 1 grenade
                 if (!hasGrenade) {
                     for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
                         ItemStack stack = player.inventory.getStackInSlot(i);
-                        // Check if this slot contains the grenade item
                         if (!stack.isEmpty() && stack.getItem() == RegistryHandler.GRENADE.get()) {
-                            stack.shrink(1); // Safely consumes 1 item and syncs with client
+                            stack.shrink(1);
                             hasGrenade = true;
-                            break; // Stop searching once we found and consumed one
+                            break;
                         }
                     }
                 }
 
-                // 2. If ammo was found (or player is creative), fire the mortar!
                 if (hasGrenade) {
                     TileEntity te = player.world.getTileEntity(msg.pos);
                     if (te instanceof MortarTileEntity) {

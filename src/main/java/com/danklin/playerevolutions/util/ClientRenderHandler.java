@@ -21,7 +21,6 @@ public class ClientRenderHandler {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
-        // Check if player is wearing the Night Vision Goggles Helmet
         ItemStack headStack = mc.player.getItemStackFromSlot(EquipmentSlotType.HEAD);
         if (!headStack.isEmpty() && headStack.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES_HELMET.get()) {
 

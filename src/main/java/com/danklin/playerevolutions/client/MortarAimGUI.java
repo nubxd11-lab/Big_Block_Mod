@@ -3,11 +3,8 @@ package com.danklin.playerevolutions.client;
 import com.danklin.playerevolutions.PlayerEvolutions;
 import com.danklin.playerevolutions.network.PacketFireMortar;
 import com.danklin.playerevolutions.tileentities.MortarTileEntity;
-import com.danklin.playerevolutions.util.RegistryHandler;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.StringTextComponent;
 
 public class MortarAimGUI extends Screen {
