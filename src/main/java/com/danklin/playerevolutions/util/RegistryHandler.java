@@ -17,6 +17,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import static net.minecraft.item.ItemGroup.COMBAT;
+
 public class RegistryHandler {
     public static final String MOD_ID = "playerevolutions";
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
@@ -43,11 +45,11 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block", () -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
-            new ScopedCrossbow(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(16)));
+            new ScopedCrossbow(new Item.Properties().group(COMBAT).maxDamage(16)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
-            new ManpadsItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1)));
+            new ManpadsItem(new Item.Properties().group(COMBAT).maxStackSize(1)));
     public static final RegistryObject<Item> MANPADS_AMMO = ITEMS.register("manpads_ammo", () ->
-            new Item(new Item.Properties().group(ItemGroup.COMBAT)));
+            new Item(new Item.Properties().group(COMBAT)));
 
     public static final RegistryObject<Block> RED_LEGO_BLOCK = BLOCKS.register("red_lego_block", RedLegoBlock::new);
     public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block", () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
@@ -62,10 +64,10 @@ public class RegistryHandler {
             () -> new NuclearBombRemoteController(new Item.Properties().maxStackSize(1)));
 
     public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast",
-            () -> new AirBlast(new Item.Properties().maxStackSize(1).group(ItemGroup.COMBAT)));
+            () -> new AirBlast(new Item.Properties().maxStackSize(1).group(COMBAT)));
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade",
-            () -> new Grenade(new Item.Properties().group(ItemGroup.COMBAT)));
+            () -> new Grenade(new Item.Properties().group(COMBAT)));
     public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITIES.register("grenade",
             () -> EntityType.Builder.<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC)
                     .size(0.25F, 0.25F)
@@ -79,4 +81,7 @@ public class RegistryHandler {
 
     public static final RegistryObject<Item> NIGHT_VISION_GOGGLES_HELMET = ITEMS.register("night_vision_goggles_helmet",
             () -> new NightVisionGogglesHelmet(new GogglesMaterial()));
+
+    public static final RegistryObject<Item> DAGGER = ITEMS.register("dagger",
+            () -> new Dagger(new Item.Properties().group(COMBAT).defaultMaxDamage(250)));
 }

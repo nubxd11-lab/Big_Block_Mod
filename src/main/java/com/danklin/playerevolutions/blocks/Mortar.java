@@ -2,7 +2,6 @@ package com.danklin.playerevolutions.blocks;
 
 import com.danklin.playerevolutions.client.MortarAimGUI;
 import com.danklin.playerevolutions.tileentities.MortarTileEntity;
-import com.danklin.playerevolutions.util.RegistryHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
