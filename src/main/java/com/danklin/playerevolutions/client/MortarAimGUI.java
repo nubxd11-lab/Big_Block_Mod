@@ -49,22 +49,12 @@ public class MortarAimGUI extends Screen {
         }));
 
         this.addButton(new Button(centerX - 40, centerY + 50, 80, 20, "FIRE!", b -> {
-            if (this.mortar != null && Minecraft.getInstance().player != null) {
-
-                boolean isCreative = Minecraft.getInstance().player.isCreative();
-                boolean hasAmmo = isCreative || Minecraft.getInstance().player.inventory.hasItemStack(new ItemStack(RegistryHandler.GRENADE.get()));
-
-                if (hasAmmo) {
-                    PlayerEvolutions.NETWORK.sendToServer(
-                            new PacketFireMortar(this.mortar.getPos(), this.distance, this.yaw)
-                    );
-                    this.onClose();
-                } else {
-                    Minecraft.getInstance().player.sendStatusMessage(
-                            new net.minecraft.util.text.StringTextComponent("No grenades in inventory!"), true
-                    );
-                }
+            if (this.mortar != null) {
+                PlayerEvolutions.NETWORK.sendToServer(
+                        new PacketFireMortar(this.mortar.getPos(), this.distance, this.yaw)
+                );
             }
+            this.onClose();
         }));
     }
 

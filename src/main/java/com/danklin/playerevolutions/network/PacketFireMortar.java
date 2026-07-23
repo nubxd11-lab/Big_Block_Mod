@@ -8,7 +8,6 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -40,36 +39,32 @@ public class PacketFireMortar {
             ServerPlayerEntity player = ctx.get().getSender();
             if (player != null && player.world.isBlockLoaded(msg.pos)) {
 
-                boolean isCreative = player.isCreative();
-                boolean hasGrenade = isCreative;
-                int grenadeSlot = -1;
+                boolean hasGrenade = player.isCreative();
 
-                if (!isCreative) {
+                // 1. If not creative, search inventory and consume 1 grenade
+                if (!hasGrenade) {
                     for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
                         ItemStack stack = player.inventory.getStackInSlot(i);
+                        // Check if this slot contains the grenade item
                         if (!stack.isEmpty() && stack.getItem() == RegistryHandler.GRENADE.get()) {
+                            stack.shrink(1); // Safely consumes 1 item and syncs with client
                             hasGrenade = true;
-                            grenadeSlot = i;
-                            break;
+                            break; // Stop searching once we found and consumed one
                         }
                     }
                 }
 
+                // 2. If ammo was found (or player is creative), fire the mortar!
                 if (hasGrenade) {
                     TileEntity te = player.world.getTileEntity(msg.pos);
                     if (te instanceof MortarTileEntity) {
                         MortarTileEntity mortar = (MortarTileEntity) te;
                         mortar.setTargetDistance(msg.distance);
                         mortar.setTargetYaw(msg.yaw);
-
                         mortar.executeServerFire();
-
-                        if (!isCreative && grenadeSlot != -1) {
-                            player.inventory.decrStackSize(grenadeSlot, 1);
-                        }
                     }
                 } else {
-                    player.sendStatusMessage(new StringTextComponent("Out of ammo! Requires a Grenade."), true);
+                    player.sendStatusMessage(new net.minecraft.util.text.StringTextComponent("Out of ammo! Requires a Grenade."), true);
                 }
             }
         });

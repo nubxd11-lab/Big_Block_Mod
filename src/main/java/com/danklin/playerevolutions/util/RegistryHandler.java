@@ -8,6 +8,7 @@ import com.danklin.playerevolutions.tileentities.MortarTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
@@ -76,4 +77,6 @@ public class RegistryHandler {
     public static final RegistryObject<TileEntityType<MortarTileEntity>> MORTAR_TILE_ENTITY = TILE_ENTITIES.register("mortar",
             () -> TileEntityType.Builder.create(MortarTileEntity::new, MORTAR.get()).build(null));
 
+    public static final RegistryObject<Item> NIGHT_VISION_GOGGLES_HELMET = ITEMS.register("night_vision_goggles_helmet",
+            () -> new NightVisionGogglesHelmet(new GogglesMaterial()));
 }
