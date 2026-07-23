@@ -1,8 +1,13 @@
 package com.danklin.playerevolutions.client;
 
+import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.network.PacketFireMortar;
 import com.danklin.playerevolutions.tileentities.MortarTileEntity;
+import com.danklin.playerevolutions.util.RegistryHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.StringTextComponent;
 
 public class MortarAimGUI extends Screen {
@@ -27,34 +32,39 @@ public class MortarAimGUI extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Distance - 5
         this.addButton(new Button(centerX - 80, centerY - 30, 35, 20, "-5", b -> {
             this.distance = Math.max(5, this.distance - 5);
         }));
 
-        // Distance + 5
         this.addButton(new Button(centerX + 45, centerY - 30, 35, 20, "+5", b -> {
             this.distance = Math.min(100, this.distance + 5);
         }));
 
-        // Yaw - 15°
         this.addButton(new Button(centerX - 80, centerY + 10, 35, 20, "-15°", b -> {
             this.yaw = (this.yaw - 15 + 360) % 360;
         }));
 
-        // Yaw + 15°
         this.addButton(new Button(centerX + 45, centerY + 10, 35, 20, "+15°", b -> {
             this.yaw = (this.yaw + 15) % 360;
         }));
 
-        // FIRE! Button
         this.addButton(new Button(centerX - 40, centerY + 50, 80, 20, "FIRE!", b -> {
-            if (this.mortar != null) {
-                this.mortar.setTargetDistance(this.distance);
-                this.mortar.setTargetYaw(this.yaw);
-                this.mortar.fire();
+            if (this.mortar != null && Minecraft.getInstance().player != null) {
+
+                boolean isCreative = Minecraft.getInstance().player.isCreative();
+                boolean hasAmmo = isCreative || Minecraft.getInstance().player.inventory.hasItemStack(new ItemStack(RegistryHandler.GRENADE.get()));
+
+                if (hasAmmo) {
+                    PlayerEvolutions.NETWORK.sendToServer(
+                            new PacketFireMortar(this.mortar.getPos(), this.distance, this.yaw)
+                    );
+                    this.onClose();
+                } else {
+                    Minecraft.getInstance().player.sendStatusMessage(
+                            new net.minecraft.util.text.StringTextComponent("No grenades in inventory!"), true
+                    );
+                }
             }
-            this.onClose();
         }));
     }
 
@@ -68,10 +78,6 @@ public class MortarAimGUI extends Screen {
         drawCenteredString(this.font, "MORTAR TARGETING", centerX, centerY - 60, 0xFFFFFF);
         drawCenteredString(this.font, "Range: " + this.distance + " Blocks", centerX, centerY - 25, 0xFFFF55);
         drawCenteredString(this.font, "Yaw: " + this.yaw + "°", centerX, centerY + 15, 0x55FF55);
-
-        if (this.mortar != null) {
-            drawCenteredString(this.font, "Durability: " + this.mortar.getCurrentDurability() + " / " + this.mortar.getMaxDurability(), centerX, centerY + 80, 0xAAAAAA);
-        }
 
         super.render(mouseX, mouseY, partialTicks);
     }

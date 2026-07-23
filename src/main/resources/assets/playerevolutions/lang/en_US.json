@@ -11,5 +11,6 @@
   "item.playerevolutions.manpads_item": "MANPADS Launcher",
   "item.playerevolutions.manpads_ammo": "MANPADS Ammo",
   "item.playerevolutions.air_blast": "Air Blast",
-  "item.playerevolutions.grenade": "Grenade"
+  "item.playerevolutions.grenade": "Grenade",
+  "block.playerevolutions.mortar": "Mortar"
 }

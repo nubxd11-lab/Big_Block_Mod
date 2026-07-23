@@ -11,7 +11,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -43,11 +42,11 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block", () -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
-            new ScopedCrossbow(new Item.Properties().group(PlayerEvolutions.TAB).maxDamage(16)));
+            new ScopedCrossbow(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(16)));
     public static final RegistryObject<Item> MANPADS = ITEMS.register("manpads", () ->
-            new ManpadsItem(new Item.Properties().group(PlayerEvolutions.TAB).maxStackSize(1)));
+            new ManpadsItem(new Item.Properties().group(ItemGroup.COMBAT).maxStackSize(1)));
     public static final RegistryObject<Item> MANPADS_AMMO = ITEMS.register("manpads_ammo", () ->
-            new Item(new Item.Properties().group(PlayerEvolutions.TAB)));
+            new Item(new Item.Properties().group(ItemGroup.COMBAT)));
 
     public static final RegistryObject<Block> RED_LEGO_BLOCK = BLOCKS.register("red_lego_block", RedLegoBlock::new);
     public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block", () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
@@ -62,7 +61,7 @@ public class RegistryHandler {
             () -> new NuclearBombRemoteController(new Item.Properties().maxStackSize(1)));
 
     public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast",
-            () -> new AirBlast(new Item.Properties().maxStackSize(1)));
+            () -> new AirBlast(new Item.Properties().maxStackSize(1).group(ItemGroup.COMBAT)));
 
     public static final RegistryObject<Item> GRENADE = ITEMS.register("grenade",
             () -> new Grenade(new Item.Properties().group(ItemGroup.COMBAT)));

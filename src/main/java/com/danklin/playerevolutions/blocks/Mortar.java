@@ -2,7 +2,9 @@ package com.danklin.playerevolutions.blocks;
 
 import com.danklin.playerevolutions.client.MortarAimGUI;
 import com.danklin.playerevolutions.tileentities.MortarTileEntity;
+import com.danklin.playerevolutions.util.RegistryHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,17 +15,30 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 
-public class Mortar extends Block {
+import javax.annotation.Nullable;
 
-    public Mortar(){
+public class Mortar extends Block {
+    public Mortar() {
         super(Block.Properties.create(Material.IRON)
-                .hardnessAndResistance(5.0f, 8.0f)
+                .hardnessAndResistance(4.0f, 8.0f)
                 .sound(SoundType.METAL)
                 .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(2));
+                .harvestLevel(2)
+                .notSolid());
+    }
+
+    @Override
+    public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return false;
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
+        return true;
     }
 
     @Override
@@ -31,30 +46,28 @@ public class Mortar extends Block {
         return true;
     }
 
+    @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, net.minecraft.world.IBlockReader world) {
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new MortarTileEntity();
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (handIn != Hand.MAIN_HAND) {
-            return ActionResultType.PASS;
-        }
-
-        if (worldIn.isRemote) { // Runs strictly on client
-            TileEntity tileEntity = worldIn.getTileEntity(pos);
-            if (tileEntity instanceof MortarTileEntity) {
-                net.minecraft.client.Minecraft.getInstance().displayGuiScreen(
-                        new com.danklin.playerevolutions.client.MortarAimGUI((MortarTileEntity) tileEntity)
-                );
-                return ActionResultType.SUCCESS;
-            }
-        }
-
-        return ActionResultType.SUCCESS;
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
-    private static void openClientGui(MortarTileEntity mortar) {
-        Minecraft.getInstance().displayGuiScreen(new MortarAimGUI(mortar));
+
+    @Override
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        if (handIn == Hand.MAIN_HAND) {
+            if (worldIn.isRemote) {
+                TileEntity te = worldIn.getTileEntity(pos);
+                if (te instanceof MortarTileEntity) {
+                    Minecraft.getInstance().displayGuiScreen(new MortarAimGUI((MortarTileEntity) te));
+                }
+            }
+            return ActionResultType.SUCCESS;
+        }
+        return ActionResultType.PASS;
     }
 }

@@ -28,7 +28,7 @@ public class NuclearBombBlock extends Block {
 
     public NuclearBombBlock() {
         super(Block.Properties.create(Material.ROCK)
-                .hardnessAndResistance(3.0f, 3600000.0f) // Blast immune!
+                .hardnessAndResistance(3.0f, 3600000.0f)
                 .sound(SoundType.WET_GRASS)
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(2));

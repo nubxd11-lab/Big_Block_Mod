@@ -121,7 +121,7 @@ public class ManpadsItem extends Item {
         int lockTicks = nbt.getInt("LockTicks");
         if (currentTarget != null) {
             if (currentTarget.getEntityId() == savedTargetId) {
-                if (lockTicks < 10) { // 10 ticks = 0.5 seconds
+                if (lockTicks < 10) {
                     lockTicks++;
 
                     if (lockTicks % 2 == 0) {
@@ -178,7 +178,6 @@ public class ManpadsItem extends Item {
                     worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     playerIn.getCooldownTracker().setCooldown(this, 40);
 
-                    // Reset the lock after firing
                     nbt.putInt("LockTicks", 0);
                     nbt.putInt("TargetID", -1);
                     return;
@@ -189,12 +188,7 @@ public class ManpadsItem extends Item {
                 worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1.0F, 1.0F);
             }
         }
-
         return;
-
-
-
-
     }
 
 

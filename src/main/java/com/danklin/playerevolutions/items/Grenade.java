@@ -25,7 +25,6 @@ public class Grenade extends Item {
                 SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
 
         if (!worldIn.isRemote) {
-            // Hand-thrown grenade (launchedFromMortar remains false by default)
             GrenadeEntity grenade = new GrenadeEntity(worldIn, playerIn);
             grenade.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.2F, 1.0F);
             worldIn.addEntity(grenade);
