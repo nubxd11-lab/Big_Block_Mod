@@ -1,6 +1,8 @@
 package com.danklin.playerevolutions;
 
 import com.danklin.playerevolutions.network.PacketFireMortar;
+import com.danklin.playerevolutions.network.PistolShootPacket;
+import com.danklin.playerevolutions.util.BulletRenderer;
 import com.danklin.playerevolutions.util.RegistryHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
@@ -42,6 +44,7 @@ public class PlayerEvolutions {
         }
         RegistryHandler.init();
         MinecraftForge.EVENT_BUS.register(this);
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -53,6 +56,14 @@ public class PlayerEvolutions {
                 PacketFireMortar::decode,
                 PacketFireMortar::handle
         );
+
+        NETWORK.registerMessage(
+                id++,
+                PistolShootPacket.class,
+                PistolShootPacket::encode,
+                PistolShootPacket::decode,
+                PistolShootPacket::handle
+        );
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {
@@ -61,6 +72,10 @@ public class PlayerEvolutions {
         RenderingRegistry.registerEntityRenderingHandler(
                 RegistryHandler.GRENADE_ENTITY.get(),
                 renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer())
+        );
+        RenderingRegistry.registerEntityRenderingHandler(
+                RegistryHandler.BULLET_ENTITY.get(),
+                BulletRenderer::new
         );
     }
 

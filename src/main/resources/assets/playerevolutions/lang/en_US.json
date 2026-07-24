@@ -13,5 +13,7 @@
   "item.playerevolutions.air_blast": "Air Blast",
   "item.playerevolutions.grenade": "Grenade",
   "block.playerevolutions.mortar": "Mortar",
-  "item.playerevolutions.night_vision_goggles_helmet": "Night Vision Goggle Helmet"
+  "item.playerevolutions.dagger": "Dagger",
+  "item.playerevolutions.pistol": "Pistol",
+  "item.playerevolutions.bullet": "Bullet"
 }

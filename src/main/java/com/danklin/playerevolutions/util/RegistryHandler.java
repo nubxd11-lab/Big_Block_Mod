@@ -2,6 +2,7 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
 import com.danklin.playerevolutions.items.*;
 import com.danklin.playerevolutions.tileentities.MortarTileEntity;
@@ -10,6 +11,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,12 +24,14 @@ public class RegistryHandler {
     public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, PlayerEvolutions.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, PlayerEvolutions.MOD_ID);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
@@ -84,5 +88,10 @@ public class RegistryHandler {
             () -> new Dagger(new Item.Properties().group(COMBAT).defaultMaxDamage(250)));
 
     public static final RegistryObject<Item> BULLET = ITEMS.register("bullet", Bullet::new);
+    public static final RegistryObject<EntityType<BulletEntity>> BULLET_ENTITY = ENTITY_TYPES.register("bullet",
+            () -> EntityType.Builder.<BulletEntity>create(BulletEntity::new, EntityClassification.MISC)
+                    .size(0.25F, 0.25F) // Small hitbox for projectile
+                    .build(new ResourceLocation(PlayerEvolutions.MOD_ID, "bullet").toString())
+    );
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol", Pistol::new);
 }

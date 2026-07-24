@@ -2,12 +2,12 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "block/pistol_handle_texture",
-		"1": "block/pistol_flashlight_texture",
-		"2": "block/pistol_scope_texture",
-		"3": "block/pistol_trigger_texture",
-		"4": "block/pistol_barrel_texture",
-		"particle": "block/pistol_handle_texture"
+		"0": "playerevolutions:items/pistol_handle_texture",
+		"1": "playerevolutions:items/pistol_flashlight_texture",
+		"2": "playerevolutions:items/pistol_scope_texture",
+		"3": "playerevolutions:items/pistol_trigger_texture",
+		"4": "playerevolutions:items/pistol_barrel_texture",
+		"particle": "playerevolutions:items/pistol_handle_texture"
 	},
 	"elements": [
 		{

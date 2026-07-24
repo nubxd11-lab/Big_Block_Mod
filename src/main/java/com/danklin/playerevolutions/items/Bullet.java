@@ -8,7 +8,7 @@ public class Bullet extends Item {
     public Bullet() {
         super(new Item.Properties()
                 .group(ItemGroup.COMBAT)
-                .maxStackSize(64) // Ammo stacks up to 64
+                .maxStackSize(64)
         );
     }
 }
