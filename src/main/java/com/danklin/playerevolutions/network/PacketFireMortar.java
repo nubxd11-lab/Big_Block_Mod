@@ -8,7 +8,6 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.network.NetworkEvent;
-
 import java.util.function.Supplier;
 
 public class PacketFireMortar {
@@ -59,7 +58,8 @@ public class PacketFireMortar {
                         mortar.setTargetYaw(msg.yaw);
                         mortar.executeServerFire();
                     }
-                } else {
+                }
+                else {
                     player.sendStatusMessage(new net.minecraft.util.text.StringTextComponent("Out of ammo! Requires a Grenade."), true);
                 }
             }
