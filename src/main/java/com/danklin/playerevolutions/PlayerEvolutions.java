@@ -77,6 +77,10 @@ public class PlayerEvolutions {
                 RegistryHandler.BULLET_ENTITY.get(),
                 BulletRenderer::new
         );
+        RenderingRegistry.registerEntityRenderingHandler(
+                RegistryHandler.SLIPPER_ENTITY.get(),
+                renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer())
+        );
     }
 
 

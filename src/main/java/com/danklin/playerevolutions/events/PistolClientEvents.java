@@ -18,7 +18,6 @@ public class PistolClientEvents {
     public static void onMouseInput(InputEvent.MouseInputEvent event) {
         Minecraft mc = Minecraft.getInstance();
 
-        // Check if attack key (Left-Click) was pressed down while in-game (no GUI screens open)
         if (mc.gameSettings.keyBindAttack.isPressed() && mc.currentScreen == null) {
             PlayerEntity player = mc.player;
 
@@ -26,7 +25,6 @@ public class PistolClientEvents {
                 ItemStack mainHand = player.getHeldItemMainhand();
 
                 if (mainHand.getItem() instanceof Pistol) {
-                    // Sends packet to server so the bullet fires on server side
                     PlayerEvolutions.NETWORK.sendToServer(new PistolShootPacket());
                 }
             }

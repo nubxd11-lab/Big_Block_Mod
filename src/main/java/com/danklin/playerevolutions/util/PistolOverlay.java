@@ -32,7 +32,6 @@ public class PistolOverlay extends AbstractGui {
         boolean isHoldingPistol = mainItem.getItem() instanceof Pistol || offItem.getItem() instanceof Pistol;
 
         if (isHoldingPistol && player.isHandActive()) {
-            // Zoom factor (0.5F = 2x zoom)
             event.setNewfov(event.getFov() * 0.5F);
         }
     }

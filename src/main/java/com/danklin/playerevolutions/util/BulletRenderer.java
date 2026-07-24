@@ -33,17 +33,14 @@ public class BulletRenderer extends EntityRenderer<BulletEntity> {
     public void render(BulletEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
         matrixStackIn.push();
 
-        // 1. Orient bullet along its trajectory (Yaw & Pitch)
         float yaw = MathHelper.lerp(partialTicks, entityIn.prevRotationYaw, entityIn.rotationYaw);
         float pitch = MathHelper.lerp(partialTicks, entityIn.prevRotationPitch, entityIn.rotationPitch);
 
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(yaw - 90.0F));
         matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(pitch));
 
-        // 2. Scale size so it's easy to spot in flight
         matrixStackIn.scale(1.2F, 1.2F, 1.2F);
 
-        // 3. Draw cross planes (front and back faces)
         IVertexBuilder builder = bufferIn.getBuffer(RenderType.getEntityCutout(this.getEntityTexture(entityIn)));
         MatrixStack.Entry entry = matrixStackIn.getLast();
         Matrix4f matrix4f = entry.getMatrix();
@@ -52,11 +49,9 @@ public class BulletRenderer extends EntityRenderer<BulletEntity> {
         float width = 0.15F;
         float length = 0.4F;
 
-        // Plane 1: Front and Back
         drawQuad(matrix4f, matrix3f, builder, -length, -width, 0, length, width, 0, packedLightIn, false);
         drawQuad(matrix4f, matrix3f, builder, -length, -width, 0, length, width, 0, packedLightIn, true);
 
-        // Plane 2: Vertical Cross (rotated)
         drawQuad(matrix4f, matrix3f, builder, -length, 0, -width, length, 0, width, packedLightIn, false);
         drawQuad(matrix4f, matrix3f, builder, -length, 0, -width, length, 0, width, packedLightIn, true);
 

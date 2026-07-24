@@ -5,13 +5,14 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 
-public class Dagger extends Item {
+public class Belt extends Item {
 
-    private final float attackDamage = 3.0F;
-    private final float attackSpeed = -1.2F;
+    private final float attackDamage = 2.0F;
+    private final float attackSpeed = -2.6F;
 
-    public Dagger(Item.Properties properties) {
+    public Belt(Item.Properties properties) {
         super(properties);
     }
 
@@ -34,3 +35,4 @@ public class Dagger extends Item {
         return multimap;
     }
 }
+

@@ -2,9 +2,9 @@ package com.danklin.playerevolutions.items;
 
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.util.RegistryHandler;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
@@ -16,11 +16,8 @@ import net.minecraft.world.World;
 
 public class Pistol extends Item {
 
-    public Pistol() {
-        super(new Item.Properties()
-                .group(ItemGroup.COMBAT)
-                .defaultMaxDamage(500)
-        );
+    public Pistol(Item.Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -36,16 +33,25 @@ public class Pistol extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack pistolStack = playerIn.getHeldItem(handIn);
+
         playerIn.setActiveHand(handIn);
         return ActionResult.resultConsume(pistolStack);
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
+        if (entityLiving instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entityLiving;
+            shoot(worldIn, player, stack);
+        }
     }
 
     public void shoot(World worldIn, PlayerEntity playerIn, ItemStack pistolStack) {
         if (playerIn.getCooldownTracker().hasCooldown(this)) return;
 
-        ItemStack ammoStack = playerIn.findAmmo(pistolStack);
         boolean isCreative = playerIn.abilities.isCreativeMode;
-        boolean hasAmmo = !ammoStack.isEmpty() && ammoStack.getItem() == RegistryHandler.BULLET.get();
+        ItemStack ammoStack = findBullet(playerIn);
+        boolean hasAmmo = !ammoStack.isEmpty();
 
         if (isCreative || hasAmmo) {
             if (!worldIn.isRemote) {
@@ -57,9 +63,8 @@ public class Pistol extends Item {
                         playerIn.getPosZ()
                 );
 
-                // Velocity pitch, yaw, roll, speed (3.5F), inaccuracy (0.1F)
                 bullet.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.5F, 0.1F);
-                bullet.pickupStatus = BulletEntity.PickupStatus.DISALLOWED; // Prevent picking up bullet item from ground
+                bullet.pickupStatus = BulletEntity.PickupStatus.DISALLOWED;
 
                 worldIn.addEntity(bullet);
 
@@ -82,5 +87,20 @@ public class Pistol extends Item {
             worldIn.playSound(null, playerIn.getPosX(), playerIn.getPosY(), playerIn.getPosZ(),
                     SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 0.8F, 1.2F);
         }
+    }
+
+    private ItemStack findBullet(PlayerEntity player) {
+        if (player.getHeldItemOffhand().getItem() == RegistryHandler.BULLET.get()) {
+            return player.getHeldItemOffhand();
+        }
+
+        for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+            ItemStack stack = player.inventory.getStackInSlot(i);
+            if (stack.getItem() == RegistryHandler.BULLET.get()) {
+                return stack;
+            }
+        }
+
+        return ItemStack.EMPTY;
     }
 }

@@ -17,9 +17,8 @@ public class BulletEntity extends AbstractArrowEntity {
     }
 
     public BulletEntity(World world, LivingEntity shooter) {
-        // Use your registered entity type instead of EntityType.ARROW
         super(RegistryHandler.BULLET_ENTITY.get(), shooter, world);
-        this.setDamage(15.0D);
+        this.setDamage(16.0D);
     }
 
     @Override
@@ -35,7 +34,6 @@ public class BulletEntity extends AbstractArrowEntity {
         }
     }
 
-    // Required so the server can send custom projectile spawn packets to clients
     @Override
     public IPacket<?> createSpawnPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);

@@ -25,7 +25,6 @@ public class PistolShootPacket {
                 ItemStack mainHand = player.getHeldItemMainhand();
                 if (mainHand.getItem() instanceof Pistol) {
                     Pistol pistol = (Pistol) mainHand.getItem();
-                    // Runs shoot on the SERVER side so the entity actually exists!
                     pistol.shoot(player.world, player, mainHand);
                 }
             }

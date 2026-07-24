@@ -1,4 +1,5 @@
 {
+  "itemGroup.playerevolutions": "Player Evolutions",
   "item.playerevolutions.ruby": "Ruby",
   "block.playerevolutions.ruby_block": "Block of Ruby",
   "block.playerevolutions.sapphire_block": "Block of Sapphire",
@@ -6,7 +7,6 @@
   "block.playerevolutions.red_lego_block": "Block of Red Lego",
   "block.playerevolutions.nuclear_bomb_block": "Nuclear Bomb",
   "item.playerevolutions.nuclear_bomb_remote_controller": "Nuclear Bomb Remote Controller",
-  "itemGroup.playerevolutions": "Player Evolutions",
   "item.playerevolutions.scoped_crossbow": "Scoped Crossbow",
   "item.playerevolutions.manpads_item": "MANPADS Launcher",
   "item.playerevolutions.manpads_ammo": "MANPADS Ammo",
@@ -15,5 +15,7 @@
   "block.playerevolutions.mortar": "Mortar",
   "item.playerevolutions.dagger": "Dagger",
   "item.playerevolutions.pistol": "Pistol",
-  "item.playerevolutions.bullet": "Bullet"
+  "item.playerevolutions.bullet": "Bullet",
+  "item.playerevolutions.slipper": "Slipper",
+  "item.playerevolutions.belt": "Belt"
 }
