@@ -77,9 +77,12 @@ public class RegistryHandler {
     public static final RegistryObject<TileEntityType<MortarTileEntity>> MORTAR_TILE_ENTITY = TILE_ENTITIES.register("mortar",
             () -> TileEntityType.Builder.create(MortarTileEntity::new, MORTAR.get()).build(null));
 
-    public static final RegistryObject<Item> NIGHT_VISION_GOGGLES_HELMET = ITEMS.register("night_vision_goggles_helmet",
-            () -> new NightVisionGogglesHelmet(new GogglesMaterial()));
+    //public static final RegistryObject<Item> NIGHT_VISION_GOGGLES_HELMET = ITEMS.register("night_vision_goggles_helmet",
+    //        () -> new NightVisionGogglesHelmet(new GogglesMaterial()));
 
     public static final RegistryObject<Item> DAGGER = ITEMS.register("dagger",
             () -> new Dagger(new Item.Properties().group(COMBAT).defaultMaxDamage(250)));
+
+    public static final RegistryObject<Item> BULLET = ITEMS.register("bullet", Bullet::new);
+    public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol", Pistol::new);
 }
