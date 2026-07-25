@@ -81,6 +81,10 @@ public class PlayerEvolutions {
                 RegistryHandler.SLIPPER_ENTITY.get(),
                 renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer())
         );
+        RenderingRegistry.registerEntityRenderingHandler(
+                RegistryHandler.AEROSOL_CAN_ENTITY.get(),
+                renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer())
+        );
     }
 
 

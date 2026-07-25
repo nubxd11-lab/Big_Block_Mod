@@ -1,0 +1,76 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "playerevolutions:items/aerosol_can_texture",
+		"particle": "playerevolutions:items/aerosol_can_texture"
+	},
+	"elements": [
+		{
+			"from": [6.5, 0, 6.5],
+			"to": [9.5, 10, 9.5],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 10], "texture": "#0"},
+				"east": {"uv": [3, 0, 6, 10], "texture": "#0"},
+				"south": {"uv": [6, 0, 9, 10], "texture": "#0"},
+				"west": {"uv": [9, 0, 12, 10], "texture": "#0"},
+				"up": {"uv": [3, 13, 0, 10], "texture": "#0"},
+				"down": {"uv": [6, 10, 3, 13], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.5, 10, 7.5],
+			"to": [8.5, 11, 8.5],
+			"faces": {
+				"north": {"uv": [6, 10, 7, 11], "texture": "#0"},
+				"east": {"uv": [7, 10, 8, 11], "texture": "#0"},
+				"south": {"uv": [8, 10, 9, 11], "texture": "#0"},
+				"west": {"uv": [9, 10, 10, 11], "texture": "#0"},
+				"up": {"uv": [11, 11, 10, 10], "texture": "#0"},
+				"down": {"uv": [7, 11, 6, 12], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 0.5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 0.5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 0.5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 0.5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"ground": {
+			"translation": [0, 2.1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [-45, 45, 39.5],
+			"translation": [-1, 2, 0]
+		},
+		"fixed": {
+			"rotation": [-21, -45, -30],
+			"translation": [1, 2, 0]
+		},
+		"on_shelf": {
+			"rotation": [22, 45, -30],
+			"translation": [1, 0, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "aerosol_can",
+			"origin": [0, 0, 0],
+			"scope": 0,
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

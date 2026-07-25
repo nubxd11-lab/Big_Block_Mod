@@ -34,16 +34,15 @@ public class Pistol extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack pistolStack = playerIn.getHeldItem(handIn);
 
+        // Starts aiming mode
         playerIn.setActiveHand(handIn);
         return ActionResult.resultConsume(pistolStack);
     }
 
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-        if (entityLiving instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entityLiving;
-            shoot(worldIn, player, stack);
-        }
+        // Left blank intentionally!
+        // Releasing right-click now exits aiming mode without firing.
     }
 
     public void shoot(World worldIn, PlayerEntity playerIn, ItemStack pistolStack) {

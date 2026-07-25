@@ -2,6 +2,7 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.entities.AerosolCanEntity;
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
 import com.danklin.playerevolutions.entities.SlipperEntity;
@@ -73,7 +74,7 @@ public class RegistryHandler {
             () -> new Grenade(new Item.Properties().group(COMBAT)));
     public static final RegistryObject<EntityType<GrenadeEntity>> GRENADE_ENTITY = ENTITIES.register("grenade",
             () -> EntityType.Builder.<GrenadeEntity>create(GrenadeEntity::new, EntityClassification.MISC)
-                    .size(0.25F, 0.25F)
+                    .size(0.35F, 0.35F)
                     .setCustomClientFactory((spawnEntity, world) -> new GrenadeEntity(RegistryHandler.GRENADE_ENTITY.get(), world))
                     .build("grenade"));
 
@@ -99,9 +100,16 @@ public class RegistryHandler {
             () -> new Slipper(new Item.Properties().group(COMBAT).defaultMaxDamage(100)));
     public static final RegistryObject<EntityType<SlipperEntity>> SLIPPER_ENTITY = ENTITIES.register("slipper_entity",
             () -> EntityType.Builder.<SlipperEntity>create(SlipperEntity::new, EntityClassification.MISC)
-                    .size(0.25F, 0.25F)
+                    .size(0.6F, 0.6F)
                     .build("slipper_entity"));
 
     public static final RegistryObject<Item> BELT = ITEMS.register("belt",
             ()-> new Belt(new Item.Properties().group(COMBAT).defaultMaxDamage(200)));
+
+    public static final RegistryObject<Item> AEROSOL_CAN = ITEMS.register("aerosol_can",
+            () -> new AerosolCan(new Item.Properties().group(COMBAT)));
+    public static final RegistryObject<EntityType<AerosolCanEntity>> AEROSOL_CAN_ENTITY = ENTITIES.register("aerosol_can",
+            () -> EntityType.Builder.<AerosolCanEntity>create(AerosolCanEntity::new, EntityClassification.MISC)
+                    .size(0.5F, 0.5F)
+                    .build("aerosol_can"));
 }
