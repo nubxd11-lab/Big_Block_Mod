@@ -21,12 +21,10 @@ import net.minecraftforge.fml.network.NetworkHooks;
 )
 public class AerosolCanEntity extends ProjectileItemEntity implements IRendersAsItem {
 
-    // Primary constructor required for entity registration
     public AerosolCanEntity(EntityType<? extends AerosolCanEntity> type, World world) {
         super(type, world);
     }
 
-    // Constructor used when a player throws the can
     public AerosolCanEntity(World world, LivingEntity thrower) {
         super(RegistryHandler.AEROSOL_CAN_ENTITY.get(), thrower, world);
     }
@@ -43,21 +41,18 @@ public class AerosolCanEntity extends ProjectileItemEntity implements IRendersAs
 
     @Override
     protected void onImpact(RayTraceResult result) {
-        if (!this.world.isRemote) { // Execute server-side only
+        if (!this.world.isRemote) {
 
-            // createExplosion parameters in 1.15.2:
-            // (Entity exploder, double x, double y, double z, float size, boolean causesFire, Explosion.Mode mode)
             this.world.createExplosion(
                     this,
                     this.getPosX(),
                     this.getPosY(),
                     this.getPosZ(),
-                    2.5F,                 // Explosion radius/power (TNT is 4.0F)
-                    false,                // false = NO FIRE
-                    Explosion.Mode.BREAK  // BREAK = breaks blocks, NONE = damage/knockback only
+                    2.5F,
+                    false,
+                    Explosion.Mode.BREAK
             );
 
-            // Remove entity from the world after detonation
             this.remove();
         }
     }
