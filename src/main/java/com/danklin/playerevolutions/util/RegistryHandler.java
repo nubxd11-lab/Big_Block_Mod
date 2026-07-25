@@ -11,7 +11,9 @@ import com.danklin.playerevolutions.tileentities.MortarTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
@@ -112,4 +114,13 @@ public class RegistryHandler {
             () -> EntityType.Builder.<AerosolCanEntity>create(AerosolCanEntity::new, EntityClassification.MISC)
                     .size(0.5F, 0.5F)
                     .build("aerosol_can"));
+
+    public static final RegistryObject<Item> RUBBER = ITEMS.register("rubber", ItemBase::new);
+
+    public static final RegistryObject<Item> HONEY_GLAZED_PORKCHOP = ITEMS.register("honey_glazed_porkchop",
+            () -> new Item(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .hunger(2)
+                            .build())));
 }

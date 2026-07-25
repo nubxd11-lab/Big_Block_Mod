@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "playerevolutions",
+  "pattern": [
+    "HHH",
+    "HPH",
+    "HHH"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:cooked_porkchop"
+    },
+    "H": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "result": {
+    "item": "playerevolutions:aerosol_can",
+    "count": 1
+  }
+}
