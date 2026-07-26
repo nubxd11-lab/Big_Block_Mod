@@ -167,4 +167,8 @@ public class RegistryHandler {
                             .hunger(3)
                             .saturation(4.6F)
                             .build())));
+
+    public static final RegistryObject<Item> MJOLNIR = ITEMS.register("mjolnir",
+            () -> new Mjolnir(new Item.Properties().group(COMBAT).defaultMaxDamage(250)));
+
 }
