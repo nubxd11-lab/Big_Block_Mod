@@ -126,6 +126,15 @@ public class RegistryHandler {
                             .meat()
                             .build())));
 
+    public static final RegistryObject<Item> CHAR_SIU_PORKCHOP = ITEMS.register("char_siu_porkchop",
+            () -> new Item(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .hunger(8)
+                            .saturation(12.8F)
+                            .meat()
+                            .build())));
+
     public static final RegistryObject<Item> HONEY_GLAZED_CHICKEN = ITEMS.register("honey_glazed_chicken",
             () -> new Item(new Item.Properties()
                     .group(ItemGroup.FOOD)
@@ -151,7 +160,7 @@ public class RegistryHandler {
                             .saturation(4.6F)
                             .build())));
 
-    public static final RegistryObject<Item> ORANGE_JUICE_BOTTLE = ITEMS.register("orange_juice_bottle",
+    public static final RegistryObject<Item> CARROT_JUICE_BOTTLE = ITEMS.register("carrot_juice_bottle",
             () -> new Item(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()

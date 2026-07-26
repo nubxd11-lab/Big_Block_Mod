@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "playerevolutions:items/orange_juice_bottle"
+    "layer0": "playerevolutions:items/carrot_juice_bottle",
   }
 }

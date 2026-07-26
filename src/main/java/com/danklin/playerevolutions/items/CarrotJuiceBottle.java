@@ -10,13 +10,10 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
-public class OrangeJuiceBottle extends Item {
+public class CarrotJuiceBottle extends Item {
 
-    private final Item containerItem;
-
-    public OrangeJuiceBottle(Properties properties) {
+    public CarrotJuiceBottle(Properties properties) {
         super(properties);
-        this.containerItem = Items.GLASS_BOTTLE;
     }
 
     @Override
@@ -36,22 +33,24 @@ public class OrangeJuiceBottle extends Item {
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        super.onItemUseFinish(stack, worldIn, entityLiving);
-
         if (entityLiving instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entityLiving;
 
-            if (player.abilities.isCreativeMode) {
-                return stack;
+            if (this.isFood()) {
+                entityLiving.onFoodEaten(worldIn, stack.copy());
             }
 
-            ItemStack bottleStack = new ItemStack(this.containerItem);
+            if (!player.abilities.isCreativeMode) {
+                stack.shrink(1);
 
-            if (stack.isEmpty()) {
-                return bottleStack;
-            } else {
-                if (!player.inventory.addItemStackToInventory(bottleStack)) {
-                    player.dropItem(bottleStack, false);
+                ItemStack bottle = new ItemStack(Items.GLASS_BOTTLE);
+
+                if (stack.isEmpty()) {
+                    return bottle;
+                }
+
+                if (!player.inventory.addItemStackToInventory(bottle)) {
+                    player.dropItem(bottle, true);
                 }
             }
         }

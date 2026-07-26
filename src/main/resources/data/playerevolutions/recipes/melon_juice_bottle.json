@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "playerevolutions",
+  "pattern": [
+    "   ",
+    " M ",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "M": {
+      "item": "minecraft:melon"
+    }
+  },
+  "result": {
+    "item": "playerevolutions:melon_juice_bottle",
+    "count": 1
+  }
+}

@@ -33,14 +33,21 @@ public class Pistol extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         ItemStack pistolStack = playerIn.getHeldItem(handIn);
-
         playerIn.setActiveHand(handIn);
         return ActionResult.resultConsume(pistolStack);
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
+    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
+        if (entity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) entity;
+            shoot(player.getEntityWorld(), player, stack);
 
+            if (player.isHandActive()) {
+                player.stopActiveHand();
+            }
+        }
+        return true;
     }
 
     public void shoot(World worldIn, PlayerEntity playerIn, ItemStack pistolStack) {
@@ -60,7 +67,9 @@ public class Pistol extends Item {
                         playerIn.getPosZ()
                 );
 
-                bullet.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.5F, 0.1F);
+                float spread = playerIn.isHandActive() ? 0.02F : 0.12F;
+
+                bullet.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 3.5F, spread);
                 bullet.pickupStatus = BulletEntity.PickupStatus.DISALLOWED;
 
                 worldIn.addEntity(bullet);
