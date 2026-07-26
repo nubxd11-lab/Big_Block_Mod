@@ -21,14 +21,14 @@ public class Mjolnir extends Item {
     private final float attackDamage = 10.0F;
     private final float attackSpeed = -3.5F;
 
-    public Mjolnir(Item.Properties properties){
+    public Mjolnir(Item.Properties properties) {
         super(properties);
     }
 
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         World world = attacker.getEntityWorld();
-        if(!world.isRemote && world instanceof ServerWorld){
+        if (!world.isRemote && world instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) world;
             LightningBoltEntity lightning = new LightningBoltEntity(
                     world,
@@ -36,11 +36,11 @@ public class Mjolnir extends Item {
                     target.getPosY(),
                     target.getPosZ(),
                     false
-                    );
+            );
             serverWorld.addLightningBolt(lightning);
             stack.damageItem(1, attacker, (p) -> p.sendBreakAnimation(EquipmentSlotType.MAINHAND));
         }
-        return super.hitEntity(stack,target,attacker);
+        return super.hitEntity(stack, target, attacker);
     }
 
     @Override
@@ -53,6 +53,7 @@ public class Mjolnir extends Item {
                 Vec3d eyePos = player.getEyePosition(1.0F);
                 Vec3d lookVec = player.getLookVec();
                 Vec3d reachVec = eyePos.add(lookVec.x * 50.0D, lookVec.y * 50.0D, lookVec.z * 50.0D);
+
                 BlockRayTraceResult rayTrace = world.rayTraceBlocks(new RayTraceContext(
                         eyePos,
                         reachVec,
@@ -60,10 +61,12 @@ public class Mjolnir extends Item {
                         RayTraceContext.FluidMode.NONE,
                         player
                 ));
+
                 if (rayTrace.getType() == RayTraceResult.Type.BLOCK) {
                     double targetX = rayTrace.getPos().getX() + 0.5D;
-                    double targetY = rayTrace.getPos().getX() + 1.0D;
-                    double targetZ = rayTrace.getPos().getX() + 0.5D;
+                    double targetY = rayTrace.getPos().getY() + 1.0D;
+                    double targetZ = rayTrace.getPos().getZ() + 0.5D;
+
                     LightningBoltEntity lightning = new LightningBoltEntity(
                             world,
                             targetX,
@@ -78,6 +81,7 @@ public class Mjolnir extends Item {
         }
         return false;
     }
+
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
         Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot);

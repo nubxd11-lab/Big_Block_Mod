@@ -18,7 +18,7 @@ public class PistolClientEvents {
     public static void onMouseInput(InputEvent.MouseInputEvent event) {
         Minecraft mc = Minecraft.getInstance();
 
-        if (mc.gameSettings.keyBindAttack.isPressed() && mc.currentScreen == null) {
+        if (event.getButton() == 0 && event.getAction() == 1 && mc.currentScreen == null) {
             PlayerEntity player = mc.player;
 
             if (player != null) {

@@ -8,11 +8,18 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
+import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityMountEvent;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -23,6 +30,8 @@ import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 
 @Mod("playerevolutions")
 public class PlayerEvolutions {
@@ -87,8 +96,34 @@ public class PlayerEvolutions {
         );
     }
 
+    @SubscribeEvent
+    public static void onDismount(EntityMountEvent event){
+        if(event.isDismounting() && !event.getWorldObj().isRemote()){
+            ArmorStandEntity seat = (ArmorStandEntity) event.getEntityBeingMounted();
+            if(seat.getCustomName() != null && seat.getCustomName().getString().equals("stool_seat")){
+                seat.remove();
+            }
+        }
+    }
 
-    public static final ItemGroup TAB = new ItemGroup("playerEvolutions") {
+    @SubscribeEvent
+    public void onBlockBreak(BlockEvent.BreakEvent event) {
+        World world = (World) event.getWorld();
+        BlockPos pos = event.getPos();
+
+        if (!world.isRemote()) {
+            AxisAlignedBB searchBox = new AxisAlignedBB(pos).grow(0.5D);
+            List<ArmorStandEntity> seats = world.getEntitiesWithinAABB(ArmorStandEntity.class, searchBox,
+                    e -> e.getCustomName() != null && e.getCustomName().getString().equals("stool_seat"));
+
+            for (ArmorStandEntity seat : seats) {
+                seat.removePassengers();
+                seat.remove();
+            }
+        }
+    }
+
+    public static final ItemGroup TAB = new ItemGroup("PlayerEvolutions") {
         @Override
         public ItemStack createIcon() {
             return new ItemStack(RegistryHandler.RUBY.get());

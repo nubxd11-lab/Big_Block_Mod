@@ -1,7 +1,7 @@
 package com.danklin.playerevolutions.util;
 
-import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.PlayerEvolutions;
+import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.entities.AerosolCanEntity;
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
@@ -40,15 +40,20 @@ public class RegistryHandler {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
 
+    public static final RegistryObject<Item> RUBBER = ITEMS.register("rubber", ItemBase::new);
+
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", ItemBase::new);
     public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", RubyBlock::new);
-    public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block", () -> new BlockItemBase(RUBY_BLOCK.get()));
+    public static final RegistryObject<Item> RUBY_BLOCK_ITEM = ITEMS.register("ruby_block",
+            () -> new BlockItemBase(RUBY_BLOCK.get()));
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = BLOCKS.register("sapphire_block", SapphireBlock::new);
-    public static final RegistryObject<Item> SAPPHIRE_BLOCK_ITEM = ITEMS.register("sapphire_block", () -> new BlockItemBase(SAPPHIRE_BLOCK.get()));
+    public static final RegistryObject<Item> SAPPHIRE_BLOCK_ITEM = ITEMS.register("sapphire_block",
+            () -> new BlockItemBase(SAPPHIRE_BLOCK.get()));
 
     public static final RegistryObject<Block> BAUXITE_BLOCK = BLOCKS.register("bauxite_block", BauxiteBlock::new);
-    public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block", () -> new BlockItemBase(BAUXITE_BLOCK.get()));
+    public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = ITEMS.register("bauxite_block",
+            () -> new BlockItemBase(BAUXITE_BLOCK.get()));
 
     public static final RegistryObject<Item> SCOPED_CROSSBOW = ITEMS.register("scoped_crossbow", () ->
             new ScopedCrossbow(new Item.Properties().group(COMBAT).maxDamage(16)));
@@ -58,10 +63,12 @@ public class RegistryHandler {
             new Item(new Item.Properties().group(COMBAT)));
 
     public static final RegistryObject<Block> RED_LEGO_BLOCK = BLOCKS.register("red_lego_block", RedLegoBlock::new);
-    public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block", () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
+    public static final RegistryObject<Item> RED_LEGO_BLOCK_ITEM = ITEMS.register("red_lego_block",
+            () -> new BlockItemBase(RED_LEGO_BLOCK.get()));
 
     public static final RegistryObject<Block> NUCLEAR_BOMB_BLOCK = BLOCKS.register("nuclear_bomb_block", NuclearBombBlock::new);
-    public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_bomb_block", () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
+    public static final RegistryObject<Item> NUCLEAR_BOMB_BLOCK_ITEM = ITEMS.register("nuclear_bomb_block",
+            () -> new BlockItemBase(NUCLEAR_BOMB_BLOCK.get()));
     public static final RegistryObject<TileEntityType<NuclearBombBlock.BombTileEntity>> NUCLEAR_BOMB_BLOCK_TILE =
             TILE_ENTITIES.register("nuclear_bomb_tile", () ->
                     TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
@@ -81,7 +88,8 @@ public class RegistryHandler {
                     .build("grenade"));
 
     public static final RegistryObject<Block> MORTAR = BLOCKS.register("mortar", Mortar::new);
-    public static final RegistryObject<Item> MORTAR_ITEM = ITEMS.register("mortar", () -> new BlockItemBase(MORTAR.get()));
+    public static final RegistryObject<Item> MORTAR_ITEM = ITEMS.register("mortar",
+            () -> new BlockItemBase(MORTAR.get()));
     public static final RegistryObject<TileEntityType<MortarTileEntity>> MORTAR_TILE_ENTITY = TILE_ENTITIES.register("mortar",
             () -> TileEntityType.Builder.create(MortarTileEntity::new, MORTAR.get()).build(null));
 
@@ -114,8 +122,6 @@ public class RegistryHandler {
             () -> EntityType.Builder.<AerosolCanEntity>create(AerosolCanEntity::new, EntityClassification.MISC)
                     .size(0.5F, 0.5F)
                     .build("aerosol_can"));
-
-    public static final RegistryObject<Item> RUBBER = ITEMS.register("rubber", ItemBase::new);
 
     public static final RegistryObject<Item> HONEY_GLAZED_PORKCHOP = ITEMS.register("honey_glazed_porkchop",
             () -> new Item(new Item.Properties()
@@ -171,4 +177,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> MJOLNIR = ITEMS.register("mjolnir",
             () -> new Mjolnir(new Item.Properties().group(COMBAT).defaultMaxDamage(250)));
 
+    public static final RegistryObject<Block> STOOL = BLOCKS.register("stool", Stool::new);
+    public static final RegistryObject<Item> STOOL_ITEM = ITEMS.register("stool",
+            () -> new BlockItemBase(STOOL.get()));
 }
