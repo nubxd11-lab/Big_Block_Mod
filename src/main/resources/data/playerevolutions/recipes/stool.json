@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "playerevolutions",
+  "pattern": [
+    "555",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "R": {
+      "tag": "minecraft:slabs"
+    },
+    "S": {
+      "item": "minecraft:stick"
+      }
+  },
+  "result": {
+    "item": "playerevolutions:stool",
+    "count": 1
+  }
+}

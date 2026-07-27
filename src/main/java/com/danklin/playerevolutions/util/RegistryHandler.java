@@ -22,6 +22,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static net.minecraft.item.ItemGroup.COMBAT;
+import static net.minecraft.item.ItemGroup.TOOLS;
 
 public class RegistryHandler {
     public static final String MOD_ID = "playerevolutions";
@@ -180,4 +181,8 @@ public class RegistryHandler {
     public static final RegistryObject<Block> STOOL = BLOCKS.register("stool", Stool::new);
     public static final RegistryObject<Item> STOOL_ITEM = ITEMS.register("stool",
             () -> new BlockItemBase(STOOL.get()));
+
+    public static final RegistryObject<Item> ULTRA_TORCH = ITEMS.register("ultra_torch",
+            () -> new UltraTorch(new Item.Properties().group(TOOLS).maxStackSize(1)));
+    public static final RegistryObject<Block> INVISIBLE_LIGHT_BLOCK = BLOCKS.register("invisible_light_block", InvisibleLightBlock::new);
 }
