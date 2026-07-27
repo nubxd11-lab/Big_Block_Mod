@@ -2,6 +2,7 @@ package com.danklin.playerevolutions.util;
 
 import com.danklin.playerevolutions.PlayerEvolutions;
 import com.danklin.playerevolutions.blocks.*;
+import com.danklin.playerevolutions.effects.Fatigue;
 import com.danklin.playerevolutions.entities.AerosolCanEntity;
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
@@ -14,6 +15,10 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectType;
+import net.minecraft.potion.Effects;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
@@ -30,6 +35,7 @@ public class RegistryHandler {
     public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, PlayerEvolutions.MOD_ID);
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, PlayerEvolutions.MOD_ID);
+    public static final DeferredRegister<Effect> EFFECTS = new DeferredRegister<>(ForgeRegistries.POTIONS, PlayerEvolutions.MOD_ID);
 
     public static void init() {
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -37,6 +43,7 @@ public class RegistryHandler {
         TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
@@ -185,4 +192,24 @@ public class RegistryHandler {
     public static final RegistryObject<Item> ULTRA_TORCH = ITEMS.register("ultra_torch",
             () -> new UltraTorch(new Item.Properties().group(TOOLS).maxStackSize(1)));
     public static final RegistryObject<Block> INVISIBLE_LIGHT_BLOCK = BLOCKS.register("invisible_light_block", InvisibleLightBlock::new);
+
+    public static final RegistryObject<Item> NIGHT_VISION_SPYGLASS = ITEMS.register("night_vision_spyglass",
+            () -> new NightVisionSpyglass(new Item.Properties().group(TOOLS).maxStackSize(1)));
+
+    public static final RegistryObject<Effect> FATIGUE = EFFECTS.register("fatigue",
+            () -> new Fatigue(EffectType.HARMFUL, 0x000000));
+
+    public static final RegistryObject<Item> ADRENALINE_PILL = ITEMS.register("adrenaline_pill",
+            () -> new AdrenalinePill (new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .effect(() -> new EffectInstance(Effects.STRENGTH, 1200, 0), 1.0f)
+                            .build())));
+
+    public static final RegistryObject<Item> PARACETAMOL_PILL = ITEMS.register("paracetamol_pill",
+            () -> new ParacetamolPill(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .effect(() -> new EffectInstance(RegistryHandler.FATIGUE.get(), 1200, 0), 1.0f)
+                            .build())));
 }

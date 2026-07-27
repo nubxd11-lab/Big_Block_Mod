@@ -1,0 +1,39 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "playerevolutions:items/night_vision_spyglass_texture",
+		"particle": "playerevolutions:items/night_vision_spyglass_texture"
+	},
+	"elements": [
+		{
+			"from": [3, 6, 7.5],
+			"to": [13, 10, 8.5],
+			"faces": {
+				"north": {"uv": [0, 0, 10, 4], "texture": "#0"},
+				"east": {"uv": [0, 10, 1, 14], "texture": "#0"},
+				"south": {"uv": [0, 4, 10, 8], "texture": "#0"},
+				"west": {"uv": [10, 0, 11, 4], "texture": "#0"},
+				"up": {"uv": [10, 9, 0, 8], "texture": "#0"},
+				"down": {"uv": [10, 9, 0, 10], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"firstperson_righthand": {
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [28, 30, 10]
+		},
+		"head": {
+			"translation": [0, 0, -7],
+			"scale": [1.5, 1.5, 1.5]
+		}
+	}
+}

@@ -2,15 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "group": "playerevolutions",
   "pattern": [
-    "555",
-    "S S",
-    "S S"
+    "SSS",
+    "| |",
+    "| |"
   ],
   "key": {
-    "R": {
+    "S": {
       "tag": "minecraft:slabs"
     },
-    "S": {
+    "|": {
       "item": "minecraft:stick"
       }
   },
