@@ -14,11 +14,10 @@ And here I am, presenting to you this mod.
 **Language** : Java
 **Framework** : Forge
 **Database** : JSON
+**Minecraft Version** : 1.15.2 Java Edition
 
 ##  Installation
-This is the website of my project on Github
-https://github.com/nubxd11-lab/Big_Mod_II
-Go to the green code button
+In Github, press the green "code" button
 Press download zip
 Unzip by right-click the zip file in the file explorer and press extract all
 Then paste everything in a folder for good organization

@@ -33,12 +33,12 @@ public class Stool extends Block {
             if (!world.isRemote) {
 
                 double seatX = pos.getX() + 0.5D;
-                double seatY = pos.getY() + 0.0D;
+                double seatY = pos.getY() - 0.7D;
                 double seatZ = pos.getZ() + 0.5D;
 
                 AxisAlignedBB searchBox = new AxisAlignedBB(pos).grow(0.5D);
                 List<ArmorStandEntity> existingSeats = world.getEntitiesWithinAABB(ArmorStandEntity.class, searchBox,
-                        e -> e.getCustomName() != null && e.getCustomName().getString().equals("chair_seat"));
+                        e -> e.getCustomName() != null && e.getCustomName().getString().equals("stool_seat"));
 
                 if (!existingSeats.isEmpty()) {
                     if (existingSeats.get(0).isBeingRidden()) {
