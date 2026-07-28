@@ -13,9 +13,9 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class NightVisionSpyglass extends Item {
+public class NightVisionGoggles extends Item {
 
-    public NightVisionSpyglass(Item.Properties properties) {
+    public NightVisionGoggles(Item.Properties properties) {
         super(properties);
     }
 

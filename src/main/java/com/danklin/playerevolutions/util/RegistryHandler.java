@@ -3,6 +3,7 @@ package com.danklin.playerevolutions.util;
 import com.danklin.playerevolutions.PlayerEvolutions;
 import com.danklin.playerevolutions.blocks.*;
 import com.danklin.playerevolutions.effects.Fatigue;
+import com.danklin.playerevolutions.effects.SugarHigh;
 import com.danklin.playerevolutions.entities.AerosolCanEntity;
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.entities.GrenadeEntity;
@@ -82,7 +83,7 @@ public class RegistryHandler {
                     TileEntityType.Builder.create(NuclearBombBlock.BombTileEntity::new, NUCLEAR_BOMB_BLOCK.get()).build(null)
             );
     public static final RegistryObject<Item> NUCLEAR_BOMB_REMOTE_CONTROLLER = ITEMS.register("nuclear_bomb_remote_controller",
-            () -> new NuclearBombRemoteController(new Item.Properties().maxStackSize(1)));
+            () -> new NuclearBombRemoteController(new Item.Properties().group(COMBAT).maxStackSize(1)));
 
     public static final RegistryObject<Item> AIR_BLAST = ITEMS.register("air_blast",
             () -> new AirBlast(new Item.Properties().maxStackSize(1).group(COMBAT)));
@@ -163,6 +164,7 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
+                            .setAlwaysEdible()
                             .saturation(4.6F)
                             .build())));
 
@@ -171,6 +173,7 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
+                            .setAlwaysEdible()
                             .saturation(4.6F)
                             .build())));
 
@@ -179,6 +182,7 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
+                            .setAlwaysEdible()
                             .saturation(4.6F)
                             .build())));
 
@@ -193,8 +197,8 @@ public class RegistryHandler {
             () -> new UltraTorch(new Item.Properties().group(TOOLS).maxStackSize(1)));
     public static final RegistryObject<Block> INVISIBLE_LIGHT_BLOCK = BLOCKS.register("invisible_light_block", InvisibleLightBlock::new);
 
-    public static final RegistryObject<Item> NIGHT_VISION_SPYGLASS = ITEMS.register("night_vision_spyglass",
-            () -> new NightVisionSpyglass(new Item.Properties().group(TOOLS).maxStackSize(1)));
+    public static final RegistryObject<Item> NIGHT_VISION_GOGGLES = ITEMS.register("night_vision_goggles",
+            () -> new NightVisionGoggles(new Item.Properties().group(TOOLS).maxStackSize(1)));
 
     public static final RegistryObject<Effect> FATIGUE = EFFECTS.register("fatigue",
             () -> new Fatigue(EffectType.HARMFUL, 0x000000));
@@ -203,6 +207,7 @@ public class RegistryHandler {
             () -> new AdrenalinePill (new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
+                            .fastToEat()
                             .effect(() -> new EffectInstance(Effects.STRENGTH, 1200, 0), 1.0f)
                             .build())));
 
@@ -210,6 +215,30 @@ public class RegistryHandler {
             () -> new ParacetamolPill(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
+                            .fastToEat()
                             .effect(() -> new EffectInstance(RegistryHandler.FATIGUE.get(), 1200, 0), 1.0f)
+                            .build())));
+
+    public static final RegistryObject<Item> RADAR = ITEMS.register("radar",
+            () -> new Radar(new Item.Properties().group(TOOLS).maxStackSize(1)));
+
+    public static final RegistryObject<Effect> SUGAR_HIGH = EFFECTS.register("sugar_high",
+            () -> new SugarHigh (EffectType.NEUTRAL, 0x000000));
+
+    public static final RegistryObject<Item> CANDY = ITEMS.register("candy",
+            () -> new Candy(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .fastToEat()
+                            .effect(() -> new EffectInstance(RegistryHandler.SUGAR_HIGH.get(), 1200, 0), 1.0f)
+                            .build())));
+
+    public static final RegistryObject<Item> COFFEE_CANDY = ITEMS.register("coffee_candy",
+            () -> new CoffeeCandy(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .fastToEat()
+                            .effect(() -> new EffectInstance(Effects.SPEED, 1200, 0), 1.0f)
+                            .effect(() -> new EffectInstance(Effects.HASTE, 1200, 0), 1.0f)
                             .build())));
 }

@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "playerevolutions:items/night_vision_spyglass_texture",
-		"particle": "playerevolutions:items/night_vision_spyglass_texture"
+		"0": "playerevolutions:items/night_vision_goggles_texture",
+		"particle": "playerevolutions:items/night_vision_goggles_texture"
 	},
 	"elements": [
 		{

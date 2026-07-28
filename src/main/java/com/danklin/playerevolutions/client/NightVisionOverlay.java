@@ -28,9 +28,9 @@ public class NightVisionOverlay {
             ItemStack offHand = player.getHeldItemOffhand();
 
             ItemStack activeStack = ItemStack.EMPTY;
-            if (mainHand.getItem() == RegistryHandler.NIGHT_VISION_SPYGLASS.get()) {
+            if (mainHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
                 activeStack = mainHand;
-            } else if (offHand.getItem() == RegistryHandler.NIGHT_VISION_SPYGLASS.get()) {
+            } else if (offHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
                 activeStack = offHand;
             }
 
