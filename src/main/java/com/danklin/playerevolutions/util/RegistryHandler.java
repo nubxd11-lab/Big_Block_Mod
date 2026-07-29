@@ -264,4 +264,16 @@ public class RegistryHandler {
                             .setAlwaysEdible()
                             .effect(() -> new EffectInstance(Effects.SLOW_FALLING, 1200, 0), 1.0f)
                             .build())));
+
+    public static final RegistryObject<Item> SUSPICIOUS_BERRY = ITEMS.register("suspicious_berry",
+            () -> new SuspiciousBerry(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .fastToEat()
+                            .setAlwaysEdible()
+                            .effect(() -> new EffectInstance(Effects.UNLUCK, 1200, 0), 0.25f)
+                            .effect(() -> new EffectInstance(Effects.LUCK, 1200, 0), 0.25f)
+                            .effect(() -> new EffectInstance(Effects.BAD_OMEN, 1200, 0), 0.25f)
+                            .effect(() -> new EffectInstance(Effects.HERO_OF_THE_VILLAGE, 1200, 0), 0.25f)
+                            .build())));
 }

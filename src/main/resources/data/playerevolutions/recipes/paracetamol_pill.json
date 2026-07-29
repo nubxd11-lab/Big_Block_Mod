@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "playerevolutions",
+  "pattern": [
+    "BSB",
+    "SBS",
+    "BSB"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "B": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result": {
+    "item": "playerevolutions:paracetamol_pill",
+    "count": 1
+  }
+}

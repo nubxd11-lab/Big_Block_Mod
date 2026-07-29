@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "playerevolutions",
+  "pattern": [
+    "FFF",
+    "FFF",
+    "FFF"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "playerevolutions:feather_dust",
+    "count": 1
+  }
+}
