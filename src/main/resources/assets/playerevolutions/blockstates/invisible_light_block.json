@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": {
-      "model": "playerevolutions:block/invisible_light_block"
-    }
+    "": {"model": "playerevolutions:block/invisible_light_block"}
   }
 }

@@ -6,6 +6,8 @@ import com.danklin.playerevolutions.network.PistolShootPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,15 +20,20 @@ public class PistolClientEvents {
     public static void onMouseInput(InputEvent.MouseInputEvent event) {
         Minecraft mc = Minecraft.getInstance();
 
-        if (event.getButton() == 0 && event.getAction() == 1 && mc.currentScreen == null) {
+        if (mc.currentScreen != null || mc.player == null) return;
+
+        if (event.getButton() == 0 && event.getAction() == 1) {
             PlayerEntity player = mc.player;
+            ItemStack mainHand = player.getHeldItem(Hand.MAIN_HAND);
 
-            if (player != null) {
-                ItemStack mainHand = player.getHeldItemMainhand();
+            if (mainHand.getItem() instanceof Pistol) {
+                RayTraceResult target = mc.objectMouseOver;
 
-                if (mainHand.getItem() instanceof Pistol) {
-                    PlayerEvolutions.NETWORK.sendToServer(new PistolShootPacket());
+                if (target != null && target.getType() == RayTraceResult.Type.BLOCK && !player.isHandActive()) {
+                    return;
                 }
+
+                PlayerEvolutions.NETWORK.sendToServer(new PistolShootPacket());
             }
         }
     }

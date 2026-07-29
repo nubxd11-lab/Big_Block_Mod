@@ -4,6 +4,7 @@ import com.danklin.playerevolutions.items.Pistol;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.Hand;
 import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.function.Supplier;
@@ -21,11 +22,11 @@ public class PistolShootPacket {
     public static void handle(PistolShootPacket msg, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerPlayerEntity player = ctx.get().getSender();
-            if (player != null) {
+            if (player != null && player.isAlive()) {
                 ItemStack mainHand = player.getHeldItemMainhand();
                 if (mainHand.getItem() instanceof Pistol) {
                     Pistol pistol = (Pistol) mainHand.getItem();
-                    pistol.shoot(player.world, player, mainHand);
+                    pistol.shoot(player.world, player, mainHand, Hand.MAIN_HAND);
                 }
             }
         });

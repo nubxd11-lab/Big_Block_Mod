@@ -2,7 +2,6 @@ package com.danklin.playerevolutions.items;
 
 import com.danklin.playerevolutions.entities.BulletEntity;
 import com.danklin.playerevolutions.util.RegistryHandler;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +11,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Pistol extends Item {
@@ -19,6 +19,7 @@ public class Pistol extends Item {
     public Pistol(Item.Properties properties) {
         super(properties);
     }
+
 
     @Override
     public int getUseDuration(ItemStack stack) {
@@ -32,18 +33,24 @@ public class Pistol extends Item {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        ItemStack pistolStack = playerIn.getHeldItem(handIn);
-
+        ItemStack stack = playerIn.getHeldItem(handIn);
         playerIn.setActiveHand(handIn);
-        return ActionResult.resultConsume(pistolStack);
+        return ActionResult.resultConsume(stack);
+    }
+
+
+    @Override
+    public boolean onBlockStartBreak(ItemStack itemstack, BlockPos pos, PlayerEntity player) {
+        return true;
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-
+    public boolean canHarvestBlock(ItemStack stack, net.minecraft.block.BlockState state) {
+        return false;
     }
 
-    public void shoot(World worldIn, PlayerEntity playerIn, ItemStack pistolStack) {
+
+    public void shoot(World worldIn, PlayerEntity playerIn, ItemStack pistolStack, Hand handIn) {
         if (playerIn.getCooldownTracker().hasCooldown(this)) return;
 
         boolean isCreative = playerIn.abilities.isCreativeMode;
@@ -65,7 +72,7 @@ public class Pistol extends Item {
 
                 worldIn.addEntity(bullet);
 
-                pistolStack.damageItem(1, playerIn, (p) -> p.sendBreakAnimation(Hand.MAIN_HAND));
+                pistolStack.damageItem(1, playerIn, (p) -> p.sendBreakAnimation(handIn));
 
                 if (!isCreative) {
                     ammoStack.shrink(1);

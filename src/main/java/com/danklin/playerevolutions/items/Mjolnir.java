@@ -43,43 +43,35 @@ public class Mjolnir extends Item {
         return super.hitEntity(stack, target, attacker);
     }
 
-    @Override
-    public boolean onEntitySwing(ItemStack stack, LivingEntity entity) {
-        World world = entity.getEntityWorld();
-        if (!world.isRemote && entity instanceof PlayerEntity) {
-            PlayerEntity player = (PlayerEntity) entity;
-            if (!player.getCooldownTracker().hasCooldown(this)) {
-                ServerWorld serverWorld = (ServerWorld) world;
-                Vec3d eyePos = player.getEyePosition(1.0F);
-                Vec3d lookVec = player.getLookVec();
-                Vec3d reachVec = eyePos.add(lookVec.x * 50.0D, lookVec.y * 50.0D, lookVec.z * 50.0D);
+    public void summonRangedLightning(World world, PlayerEntity player, ItemStack stack) {
+        if (world.isRemote || player.getCooldownTracker().hasCooldown(this)) return;
 
-                BlockRayTraceResult rayTrace = world.rayTraceBlocks(new RayTraceContext(
-                        eyePos,
-                        reachVec,
-                        RayTraceContext.BlockMode.COLLIDER,
-                        RayTraceContext.FluidMode.NONE,
-                        player
-                ));
+        Vec3d eyePos = player.getEyePosition(1.0F);
+        Vec3d lookVec = player.getLookVec();
 
-                if (rayTrace.getType() == RayTraceResult.Type.BLOCK) {
-                    double targetX = rayTrace.getPos().getX() + 0.5D;
-                    double targetY = rayTrace.getPos().getY() + 1.0D;
-                    double targetZ = rayTrace.getPos().getZ() + 0.5D;
+        Vec3d reachVec = eyePos.add(lookVec.x * 50.0D, lookVec.y * 50.0D, lookVec.z * 50.0D);
+        BlockRayTraceResult rayTrace = world.rayTraceBlocks(new RayTraceContext(
+                eyePos,
+                reachVec,
+                RayTraceContext.BlockMode.COLLIDER,
+                RayTraceContext.FluidMode.NONE,
+                player
+        ));
 
-                    LightningBoltEntity lightning = new LightningBoltEntity(
-                            world,
-                            targetX,
-                            targetY,
-                            targetZ,
-                            false
-                    );
-                    serverWorld.addLightningBolt(lightning);
-                    player.getCooldownTracker().setCooldown(this, 20);
-                }
-            }
+        if (rayTrace.getType() == RayTraceResult.Type.BLOCK) {
+            ServerWorld serverWorld = (ServerWorld) world;
+            double targetX = rayTrace.getPos().getX() + 0.5D;
+            double targetY = rayTrace.getPos().getY() + 1.0D;
+            double targetZ = rayTrace.getPos().getZ() + 0.5D;
+
+            LightningBoltEntity lightning = new LightningBoltEntity(
+                    world, targetX, targetY, targetZ, false
+            );
+            serverWorld.addLightningBolt(lightning);
+
+            player.getCooldownTracker().setCooldown(this, 20);
+            stack.damageItem(1, player, (p) -> p.sendBreakAnimation(EquipmentSlotType.MAINHAND));
         }
-        return false;
     }
 
     @Override

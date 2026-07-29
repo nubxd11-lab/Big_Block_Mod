@@ -1,5 +1,6 @@
 package com.danklin.playerevolutions;
 
+import com.danklin.playerevolutions.network.MjolnirSwingPacket;
 import com.danklin.playerevolutions.network.PacketFireMortar;
 import com.danklin.playerevolutions.network.PistolShootPacket;
 import com.danklin.playerevolutions.util.BulletRenderer;
@@ -75,6 +76,14 @@ public class PlayerEvolutions {
                 PistolShootPacket::encode,
                 PistolShootPacket::decode,
                 PistolShootPacket::handle
+        );
+
+        NETWORK.registerMessage(
+                id++,
+                MjolnirSwingPacket.class,
+                MjolnirSwingPacket::encode,
+                MjolnirSwingPacket::decode,
+                MjolnirSwingPacket::handle
         );
     }
 

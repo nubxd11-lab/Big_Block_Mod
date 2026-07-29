@@ -230,6 +230,7 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .fastToEat()
+                            .setAlwaysEdible()
                             .effect(() -> new EffectInstance(RegistryHandler.SUGAR_HIGH.get(), 1200, 0), 1.0f)
                             .build())));
 
@@ -238,15 +239,29 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .fastToEat()
+                            .setAlwaysEdible()
                             .effect(() -> new EffectInstance(Effects.SPEED, 1200, 0), 1.0f)
                             .effect(() -> new EffectInstance(Effects.HASTE, 1200, 0), 1.0f)
                             .build())));
 
-    public static final RegistryObject FIRE_SPIRIT = ITEMS.register("fire_spirit",
+    public static final RegistryObject<Item> FIRE_SPIRIT = ITEMS.register("fire_spirit",
             () -> new FireSpirit(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .fastToEat()
+                            .setAlwaysEdible()
                             .effect(() -> new EffectInstance(Effects.FIRE_RESISTANCE, 1200, 0), 1.0f)
+                            .build())));
+
+    public static final RegistryObject<Item> DRUNK_GOGGLES = ITEMS.register("drunk_goggles",
+            () -> new DrunkGoggles(new Item.Properties().group(TOOLS).maxStackSize(1)));
+
+    public static final RegistryObject<Item> FEATHER_DUST = ITEMS.register("feather_dust",
+            () -> new FeatherDust(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .fastToEat()
+                            .setAlwaysEdible()
+                            .effect(() -> new EffectInstance(Effects.SLOW_FALLING, 1200, 0), 1.0f)
                             .build())));
 }

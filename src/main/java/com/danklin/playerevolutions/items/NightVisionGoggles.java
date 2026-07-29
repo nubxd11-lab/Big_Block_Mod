@@ -62,7 +62,7 @@ public class NightVisionGoggles extends Item {
             boolean isActive = stack.hasTag() && stack.getOrCreateTag().getBoolean("active");
 
             if (isHolding && isActive) {
-                player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20, 0, false, false));
+                player.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 999999, 0, false, false));
             }
         }
     }
