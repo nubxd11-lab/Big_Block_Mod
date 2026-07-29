@@ -16,6 +16,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = PlayerEvolutions.MOD_ID, value = Dist.CLIENT)
 public class NightVisionOverlay {
 
+    private static boolean wasActive = false;
+
     @SubscribeEvent
     public static void onRenderOverlay(RenderGameOverlayEvent.Post event) {
         if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) return;
@@ -23,35 +25,45 @@ public class NightVisionOverlay {
         Minecraft mc = Minecraft.getInstance();
         PlayerEntity player = mc.player;
 
-        if (player != null) {
-            ItemStack mainHand = player.getHeldItemMainhand();
-            ItemStack offHand = player.getHeldItemOffhand();
+        if (player == null) return;
 
-            ItemStack activeStack = ItemStack.EMPTY;
-            if (mainHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
-                activeStack = mainHand;
-            } else if (offHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
-                activeStack = offHand;
-            }
+        ItemStack mainHand = player.getHeldItemMainhand();
+        ItemStack offHand = player.getHeldItemOffhand();
 
-            if (!activeStack.isEmpty() && activeStack.hasTag()) {
-                CompoundNBT nbt = activeStack.getOrCreateTag();
-                boolean isActive = nbt.getBoolean("active");
+        ItemStack activeStack = ItemStack.EMPTY;
+        if (mainHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
+            activeStack = mainHand;
+        } else if (offHand.getItem() == RegistryHandler.NIGHT_VISION_GOGGLES.get()) {
+            activeStack = offHand;
+        }
 
-                if (isActive) {
-                    int width = mc.getMainWindow().getScaledWidth();
-                    int height = mc.getMainWindow().getScaledHeight();
+        boolean isCurrentlyActive = false;
 
-                    RenderSystem.enableBlend();
-                    RenderSystem.defaultBlendFunc();
-                    RenderSystem.disableDepthTest();
+        if (!activeStack.isEmpty() && activeStack.hasTag()) {
+            CompoundNBT nbt = activeStack.getOrCreateTag();
+            isCurrentlyActive = nbt.getBoolean("active");
+        }
 
-                    AbstractGui.fill(0, 0, width, height, 0x3300FF33);
+        if (isCurrentlyActive) {
+            int width = mc.getMainWindow().getScaledWidth();
+            int height = mc.getMainWindow().getScaledHeight();
 
-                    RenderSystem.enableDepthTest();
-                    RenderSystem.disableBlend();
-                }
+            RenderSystem.enableBlend();
+            RenderSystem.defaultBlendFunc();
+            RenderSystem.disableDepthTest();
+
+            AbstractGui.fill(0, 0, width, height, 0x3300FF33);
+
+            RenderSystem.enableDepthTest();
+            RenderSystem.disableBlend();
+        }
+
+        if (wasActive && !isCurrentlyActive) {
+            if (mc.gameRenderer.getShaderGroup() != null) {
+                mc.gameRenderer.stopUseShader();
             }
         }
+
+        wasActive = isCurrentlyActive;
     }
 }
