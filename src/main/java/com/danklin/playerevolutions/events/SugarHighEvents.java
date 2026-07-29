@@ -13,7 +13,12 @@ import net.minecraftforge.fml.common.Mod;
 public class SugarHighEvents {
 
     @SubscribeEvent
-    public static void onpotionExpire(PotionEvent.PotionExpiryEvent event) {
+    public static void onPotionExpire(PotionEvent.PotionExpiryEvent event) {
+        applySugarCrash(event.getEntityLiving(), event.getPotionEffect());
+    }
+
+    @SubscribeEvent
+    public static void onPotionRemove(PotionEvent.PotionRemoveEvent event) {
         applySugarCrash(event.getEntityLiving(), event.getPotionEffect());
     }
 

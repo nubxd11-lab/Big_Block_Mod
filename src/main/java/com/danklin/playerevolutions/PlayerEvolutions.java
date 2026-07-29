@@ -80,6 +80,7 @@ public class PlayerEvolutions {
 
     private void onClientSetup(final FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(RegistryHandler.MORTAR.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(RegistryHandler.INVISIBLE_LIGHT_BLOCK.get(), RenderType.getCutout());
 
         RenderingRegistry.registerEntityRenderingHandler(
                 RegistryHandler.GRENADE_ENTITY.get(),

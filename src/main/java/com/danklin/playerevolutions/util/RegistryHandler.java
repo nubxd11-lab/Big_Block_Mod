@@ -133,7 +133,7 @@ public class RegistryHandler {
                     .build("aerosol_can"));
 
     public static final RegistryObject<Item> HONEY_GLAZED_PORKCHOP = ITEMS.register("honey_glazed_porkchop",
-            () -> new Item(new Item.Properties()
+            () -> new HoneyGlazedPorkchop(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(8)
@@ -142,7 +142,7 @@ public class RegistryHandler {
                             .build())));
 
     public static final RegistryObject<Item> CHAR_SIU_PORKCHOP = ITEMS.register("char_siu_porkchop",
-            () -> new Item(new Item.Properties()
+            () -> new CharSiuPorkchop(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(8)
@@ -151,7 +151,7 @@ public class RegistryHandler {
                             .build())));
 
     public static final RegistryObject<Item> HONEY_GLAZED_CHICKEN = ITEMS.register("honey_glazed_chicken",
-            () -> new Item(new Item.Properties()
+            () -> new HoneyGlazedChicken(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(6)
@@ -160,7 +160,7 @@ public class RegistryHandler {
                             .build())));
 
     public static final RegistryObject<Item> MELON_JUICE_BOTTLE = ITEMS.register("melon_juice_bottle",
-            () -> new Item(new Item.Properties()
+            () -> new MelonJuiceBottle(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
@@ -169,7 +169,7 @@ public class RegistryHandler {
                             .build())));
 
     public static final RegistryObject<Item> APPLE_JUICE_BOTTLE = ITEMS.register("apple_juice_bottle",
-            () -> new Item(new Item.Properties()
+            () -> new AppleJuiceBottle(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
@@ -178,7 +178,7 @@ public class RegistryHandler {
                             .build())));
 
     public static final RegistryObject<Item> CARROT_JUICE_BOTTLE = ITEMS.register("carrot_juice_bottle",
-            () -> new Item(new Item.Properties()
+            () -> new CarrotJuiceBottle(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .hunger(3)
@@ -240,5 +240,13 @@ public class RegistryHandler {
                             .fastToEat()
                             .effect(() -> new EffectInstance(Effects.SPEED, 1200, 0), 1.0f)
                             .effect(() -> new EffectInstance(Effects.HASTE, 1200, 0), 1.0f)
+                            .build())));
+
+    public static final RegistryObject FIRE_SPIRIT = ITEMS.register("fire_spirit",
+            () -> new FireSpirit(new Item.Properties()
+                    .group(ItemGroup.FOOD)
+                    .food(new Food.Builder()
+                            .fastToEat()
+                            .effect(() -> new EffectInstance(Effects.FIRE_RESISTANCE, 1200, 0), 1.0f)
                             .build())));
 }

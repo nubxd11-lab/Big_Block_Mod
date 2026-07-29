@@ -36,5 +36,7 @@
   "radar.warning": "Hostile Mobs Nearby!!!",
   "item.playerevolutions.radar": "Radar",
   "item.playerevolutions.candy": "Candy",
-  "effect.playerevolutions.sugar_high": "Sugar High"
+  "effect.playerevolutions.sugar_high": "Sugar High",
+  "item.playerevolutions.coffee_candy": "Coffee Candy",
+  "item.playerevolutions.fire_spirit": "Fire Spirit"
 }
