@@ -3,19 +3,19 @@
   "group": "playerevolutions",
   "pattern": [
     "HHH",
-    "HPH",
+    "HCH",
     "HHH"
   ],
   "key": {
-    "P": {
-      "item": "minecraft:cooked_porkchop"
+    "C": {
+      "item": "minecraft:cooked_chicken"
     },
     "H": {
       "item": "minecraft:honey_bottle"
     }
   },
   "result": {
-    "item": "playerevolutions:honey_glazed_porkchop",
+    "item": "playerevolutions:honey_glazed_chicken",
     "count": 1
   }
 }

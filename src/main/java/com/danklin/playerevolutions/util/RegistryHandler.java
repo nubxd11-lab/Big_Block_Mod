@@ -230,7 +230,6 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .fastToEat()
-                            .setAlwaysEdible()
                             .effect(() -> new EffectInstance(RegistryHandler.SUGAR_HIGH.get(), 1200, 0), 1.0f)
                             .build())));
 
