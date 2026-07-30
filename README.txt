@@ -1,4 +1,7 @@
 #  Project Title
+
+** BIG RANDOM MOD **
+
 This is Big Random Mod, which AzzyAzimuth and I, nubxd11, code fun things here.
 
 ##  About This Project
@@ -20,7 +23,7 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 5. Import those folders into your code editor to run.
 
 ##  Added items
-1. Bauxite Block
+1. The Bauxite Block
 Ahh yes, the iron(II) oxide, which is the real world version of the iron ore that we find and mine in caves.
 These are brown solids, which are then put into fire to make carbon dioxide and iron. We did not include the
 extraction logic in this mod since we believed that this block is a starter block. The block is brown in colour
@@ -29,30 +32,105 @@ He said, and I quote, "I am not good at visual arts, I have almost failed the su
 from me". The world generation code was written later on in the project since we believed that the block logics
 can be more complete.
 
-2. Sapphire Block
+2. The Sapphire Block
 A mineral that is extremely hard, and is used for the glass in watches to prevent scrateches. This mineral is
 just slightly weaker in hardness than diamond (10) in the mohs hardness scale (sapphire's hardness in the mohs
 hardness scale is 9, the third-hardest mineral on Earth). For this block, we made the block having a high hardness,
 same as the diamond block. Again, this block has a world generation code so that it can replace stone blocks and
 appear underground. This block is blue, and has lighter coloured pixels in such to make it look shiny.
 
-3. Ruby Block & Ruby
+3 & 4. The Ruby Block & the Ruby
 These blocks are just here for the vibes, but we have given them simple block properties like every other block.
 Rubies are shiny and transparent red gemstones that are used for jewellery making. This block's texture is a picture
 rather than a solid texture file (.json files) that is made in Blockbench where most of the textures in the mod are
 created in. This block is the first block that is made in this mod and AzzyAzimuth prioritised simple and direct
 solutions at that time.
 
-4. Red Lego Block
+5. The Red Lego Block
 Remember the times that you have stepped on a lego block? It must've hurt badly! And yes, we have put this block
 into the mod to make things funny. This block is coded to deal half a heart of damage when stepped on, walked on,
 jumped on and when landed on. This block is a red in colour, and has studs popping out of the top to look like each
-block slots on the other. This block can be made with 9 rubber, which is an item added purely for crafting.
+block slots on the other.
 
-5. Nuclear Bomb Block and Nuclear Bomb Remote Controller
+6 & 7. The Nuclear Bomb Block and the Nuclear Bomb Remote Controller
 Ever wanted to see massive destruction? We've got your back! This nuclear bomb block is 5 times the strength of a TNT
-block, and can absolutely destroy anything in its way. The fuse is the same as the TNT block, 4 seconds. By combining
-8 TNT blocks around a barrel, you get this yellow block with nuclear hazard signs
+block, and can absolutely destroy anything in its way. The fuse is the same as the TNT block, 4 seconds. This yellow
+block with nuclear hazard signs which can be detonated with a flint and steel, a flaming arrow, a redstone signal,
+and the most obvious in the title, the nubclear bomb remote controller. This controller can pair with a nuclear
+bomb on the map, and can detonate the bomb at anywhere in the world!
+
+8. The Stool
+To rest or not to rest, that is the question. There is now a choice to sit down in the game! You never have to worry
+about constantly standing and being tired in the game! Right-click on the stool to sit, and left shift to dismount.
+
+9 & 10. The Mortar and The Grenade
+Need to send things high and far to attack people? This mortar can hit targets up to 100 blocks away! This is a great
+tool to use when trying to hit far away enemies. This mortar, rather than launching normal mortar shells, it launches
+grenades that detonate on impact. The grenades that AzzyAzimuth and I coded have a 4-second fuse rather than detonating
+on impact. AzzyAzimuth and I spent a long time trying to get the best trajectory for the mortar and the grenade by
+trialing and erroring. So we do hope that everyone likes it!
+
+11. The Adrenaline Pill
+To be honest, this thing doesn't work in real life, because the hormone will be dissolved when it enters the body. But
+hey, this is Minecraft, you can do whatever you like here, so we just added this here, haha! Adrenaline is a hormone
+that causes the body to have a "fight or flight" response and also makes the body stronger. For this, this pill has a
+strength effect. This pill does not replenish any hunger though. Use at your risks!!
+
+12. The Aerosol Can
+Remember the times that a guy has thrown a deodorant bomb into a room to simulate a grenade explotion? Well, that's
+one effective way to do so. And the explosion and impact when the can breaks is actually enormous. We have applied
+this logic to the mod and this item. This explosion will not cause fire, but the impact is the same as a TNT block.
+It still removes blocks, deal damage and also knockback.
+
+13. Air Blast
+Oh we love the Palm-leaf Fan in the Journey To The West. This fan creates strong wind, which made the fire on the
+Fiery Mountains to be stronger. Well, we don't have a Fiery Mountain, but we do have our own fan, air blast! No,
+it does not make fire stronger, and it does not blow structure away, but this fan has huge knockback! Playing
+around with this fan is actually huge fun, when you can see animals being blown to the other side of the river.
+It is literally so funny to watch!
+
+14, 15 & 16. Apple Juice Bottle, Carrot Juice Bottle and Melon Juice Bottle
+It is weird that Minecraft does not have juice-related items. So we made some juice bottles. The juice bottles are
+not supposed to feed the player full, but at least there is a way for food. Don't worry, you won't eat the bottle. The
+glass will be put back to the inventory after consuming, so no concerns of glass hurting your throat.
+
+17. Belt
+Ahh, the strict fathers' weapon, run! Well, just be more than a meter away from the belt. Being whipped by the belt
+will definitely hurt like hell, so it causes big damage. Mind the keyword, big, not huge, not massive. There is more
+crazy weapons waiting with huge damage.
+
+18. Slipper
+Oh yes, the strict Asian mothers' weapon. Wait, what?? RUN FOR YOUR LIVES!!! AIR RAID!!! Haha! This slipper is a
+long range weapon, not a short range weapon like the belt. We have made this so that you can throw it. This slipper
+doesn't deal as much damage as the belt, because the belt is always worse than the slipper, although asians do have
+ways to make it hurt more... Oh well, this slipper is rubber made, we can't make it hurt more.
+
+19. Suspicious Berry
+A sibling of the suspicious series. There is a chance to get bad omen, hero of the village, luck and unluck, each
+with 25 percent chance of each. We forgot to include this in my demo video, so we are going to write about it here.
+This berry is colourful, with different colours of the rainbow included in the berry, symbolising the different
+choices we get. Sadly, this does not replenish any hunger, and is only a tool to get an effect.
+
+20 & 21. Candy and Coffee Candy
+Sweet treats, our favourite. The candy gives people sugar high effects in real life. There are always times that
+our friends just eat candy and just do the weirdest things... They just have unlimited power when in sugar high
+mode... We implemented the new sugar high effect for the candy, but not the coffe candy. The coffe candy includes
+caffeine, so we added speed and haste effects to the coffe candy to simulate the stimulated feeling after consuming
+caffeine.
+
+22, 23 & 24. Char Siu Porkchop, Honey Glazed Porkchop and Honey Glazed Chicken
+Real meat, doesn't that feel nice. These also taste much better than the normal cooked meat. Char Siu is a really
+nice sweet and salty roasted pork, which is Hong Kong people's favourite food. This roasting technique is also used
+in western countries, but they use honey to roast the meat. The honey roasted meat is nice too, but not as good as
+Chat Siu Porkchop. Anyway, these meat all replenish huge amounts of hunger ad saturation. However, they have no
+effects on the player.
+
+25 & 26. Fether Dust and Fire Spirit
+The dusts that give you effect. Do you guys love the names? Well, we love them at least. Feather Dust, from the name
+means that you fall like a feather, so it gives you a slow falling effect. Fire Spirit, also from its name, gives you
+fire resistance. These are both effect tools, they do not replenish hunger.
+
+
 
 
 ##  COPYRIGHT

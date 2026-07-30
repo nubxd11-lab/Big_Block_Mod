@@ -207,6 +207,7 @@ public class RegistryHandler {
             () -> new AdrenalinePill (new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
+                            .setAlwaysEdible()
                             .fastToEat()
                             .effect(() -> new EffectInstance(Effects.STRENGTH, 1200, 0), 1.0f)
                             .build())));
@@ -215,6 +216,7 @@ public class RegistryHandler {
             () -> new ParacetamolPill(new Item.Properties()
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
+                            .setAlwaysEdible()
                             .fastToEat()
                             .effect(() -> new EffectInstance(RegistryHandler.FATIGUE.get(), 1200, 0), 1.0f)
                             .build())));
@@ -238,7 +240,6 @@ public class RegistryHandler {
                     .group(ItemGroup.FOOD)
                     .food(new Food.Builder()
                             .fastToEat()
-                            .setAlwaysEdible()
                             .effect(() -> new EffectInstance(Effects.SPEED, 1200, 0), 1.0f)
                             .effect(() -> new EffectInstance(Effects.HASTE, 1200, 0), 1.0f)
                             .build())));
