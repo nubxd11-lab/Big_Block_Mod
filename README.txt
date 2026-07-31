@@ -1,23 +1,23 @@
-#  Project Title
+#  Project Title :
 
 ** BIG RANDOM MOD **
 
 This is Big Random Mod, which AzzyAzimuth and I, nubxd11, code fun things here.
 
-##  About This Project
+##  About This Project :
 AzzyAzimuth and I have always wanted to enjoy Minecraft in our own way.
 So we started this project, to code this mod which includes the most random things that we love and enjoy.
 AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, presenting to you this mod.
 
-##  Tech Stack
+##  Tech Stack :
 **Language** : Java
 **Framework** : Forge
 **Database** : JSON
-* **Java:** JDK 11 installed and set in your environment variables.
-* **Code Editor:** IntelliJ IDEA (Recommended), Eclipse, or VS Code.
+**Java:** JDK 11 installed and set in your environment variables.
+**Code Editor:** IntelliJ IDEA (Recommended), Eclipse, or VS Code.
 **Minecraft Version** : 1.15.2 Java Edition
 
-##  Installation
+##  Installation :
 1. In GitHub (browser version), press the green "code" button.
 2. Press download zip.
 3. Unzip by right-click the zip file in the file explorer and press extract all.
@@ -26,7 +26,7 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 6. Must build Gradle before running the code!!! (This may take a long time for first launch)
 7. Run the project using the built-in Forge run configuration or execute 'gradlew runClient' in your terminal!
 
-##  Added items
+##  Added items :
 1. The Bauxite Block
 Ahh yes, the iron(II) oxide, which is the real world version of the iron ore that we find and mine in caves.
 These are brown solids, which are then put into fire to make carbon dioxide and iron. We did not include the
@@ -60,7 +60,7 @@ block slots on the other.
 Ever wanted to see massive destruction? We've got your back! This nuclear bomb block is 5 times the strength of a TNT
 block, and can absolutely destroy anything in its way. The fuse is the same as the TNT block, 4 seconds. This yellow
 block with nuclear hazard signs which can be detonated with a flint and steel, a flaming arrow, a redstone signal,
-and the most obvious in the title, the nubclear bomb remote controller. This controller can pair with a nuclear
+and the most obvious in the title, the nuclear bomb remote controller. This controller can pair with a nuclear
 bomb on the map, and can detonate the bomb at anywhere in the world!
 
 8. The Stool
@@ -192,8 +192,7 @@ it is very sensitive when you're underground and trying to mine things but not g
 active when the radar is in your inventory. This means that you csn be surronded by stone blocks but the message
 of "Hostile Mobs Nearby!" will still appear above your inventory bar. How cool is that?
 
-40. RECIPES
-Below are the recipe photos:
+## Recipe Photos :
 
 Adrenaline pill:
 <img width="167" height="77" alt="Image" src="https://github.com/user-attachments/assets/780f2f00-f0ca-4d0a-ba0d-8d304a9ba76a" />
@@ -295,6 +294,7 @@ Ultra torch:
 <img width="328" height="157" alt="Image" src="https://github.com/user-attachments/assets/36814faa-72fc-4609-8f0e-0ca6a93641f8" />
 
 
+## License and Copyright :
 
-## *** Copyright (c) 2026 AzzyAzimuth and nubxd11. All rights reserved.
-## *** Distribution of any portions of code or raw assets without explicit written permission is strictly prohibited.
+Copyright (c) 2026 AzzyAzimuth and nubxd11. All rights reserved.
+Distribution of any portions of code or raw assets without explicit written permission is strictly prohibited.
