@@ -195,6 +195,19 @@ of "Hostile Mobs Nearby!" will still appear above your inventory bar. How cool i
 40. RECIPES
 Below are the recipe photos:
 
+<img width="167" height="77" alt="Image" src="https://github.com/user-attachments/assets/780f2f00-f0ca-4d0a-ba0d-8d304a9ba76a" />
+
+<img width="170" height="76" alt="Image" src="https://github.com/user-attachments/assets/86c7082c-fe11-4d3c-8501-c698d650e2ab" />
+
+<img width="167" height="81" alt="Image" src="https://github.com/user-attachments/assets/4e53c1d2-1df0-4673-9be3-ef6ec4b56277" />
+
+<img width="169" height="78" alt="Image" src="https://github.com/user-attachments/assets/3214ade5-5eab-4497-9b91-6113343cd75c" />
+
+<img width="167" height="79" alt="Image" src="https://github.com/user-attachments/assets/2607ccc9-1412-40b6-84af-d173f8b8dda2" />
+
+<img width="173" height="78" alt="Image" src="https://github.com/user-attachments/assets/a95380a6-1981-4079-a7b8-29b7c2bd3028" />
+
+<img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/e2577bf7-fbd4-446f-ba11-52df52e9b615" />
 
 
 
