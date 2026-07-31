@@ -1,8 +1,8 @@
 #  Project Title :
 
-** BIG RANDOM MOD **
+** PROJECT RANDOM THINGS MOD **
 
-This is Big Random Mod, which AzzyAzimuth and I, nubxd11, code fun things here.
+This is Project Random Things Mod, which AzzyAzimuth and I, nubxd11, code fun things here.
 
 
 ## Authors and Credits :
