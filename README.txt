@@ -195,75 +195,104 @@ of "Hostile Mobs Nearby!" will still appear above your inventory bar. How cool i
 40. RECIPES
 Below are the recipe photos:
 
+Adrenaline pill:
 <img width="167" height="77" alt="Image" src="https://github.com/user-attachments/assets/780f2f00-f0ca-4d0a-ba0d-8d304a9ba76a" />
 
+Aerosol can:
 <img width="170" height="76" alt="Image" src="https://github.com/user-attachments/assets/86c7082c-fe11-4d3c-8501-c698d650e2ab" />
 
+Air blast:
 <img width="167" height="81" alt="Image" src="https://github.com/user-attachments/assets/4e53c1d2-1df0-4673-9be3-ef6ec4b56277" />
 
+Apple juice bottle:
 <img width="169" height="78" alt="Image" src="https://github.com/user-attachments/assets/3214ade5-5eab-4497-9b91-6113343cd75c" />
 
+Belt:
 <img width="167" height="79" alt="Image" src="https://github.com/user-attachments/assets/2607ccc9-1412-40b6-84af-d173f8b8dda2" />
 
+Bullet:
 <img width="173" height="78" alt="Image" src="https://github.com/user-attachments/assets/a95380a6-1981-4079-a7b8-29b7c2bd3028" />
 
+Candy:
 <img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/e2577bf7-fbd4-446f-ba11-52df52e9b615" />
 
+Carrot juice bottle:
 <img width="171" height="78" alt="Image" src="https://github.com/user-attachments/assets/9d7b85c8-bef8-4e1b-8485-dc89f694a823" />
 
+Coffee candy:
 <img width="172" height="78" alt="Image" src="https://github.com/user-attachments/assets/743cff35-8906-4978-8ff2-f7233575de13" />
 
+Dagger:
 <img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/23f67345-3c1a-444a-a08d-f0bb56987ef6" />
 
+Drunk goggles:
 <img width="165" height="79" alt="Image" src="https://github.com/user-attachments/assets/a82c73bf-1e3e-42bd-813c-164162d1f4e5" />
 
+Feather dust:
 <img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/962abe07-624e-4b16-8a90-66f0f8176b06" />
 
+Fire spirit:
 <img width="171" height="81" alt="Image" src="https://github.com/user-attachments/assets/8937d1f9-23af-454b-bd01-b7ffc67251a6" />
 
+Grenade:
 <img width="166" height="79" alt="Image" src="https://github.com/user-attachments/assets/e5d519f1-ae1b-489a-9e81-f389fe7d4ba2" />
 
+Honey glazed porkchop:
+<img width="340" height="161" alt="Image" src="https://github.com/user-attachments/assets/45958e7a-44e5-4838-b9b8-07b8d64c0d41" />
+
+Honey glazed chicken:
 <img width="335" height="158" alt="Image" src="https://github.com/user-attachments/assets/67246911-3bae-4773-8651-0cb04c9ecb8a" />
 
+MANPADS:
 <img width="169" height="72" alt="Image" src="https://github.com/user-attachments/assets/616de7d9-34b1-486c-b128-0f7509255487" />
 
+MANPADS ammo:
 <img width="170" height="82" alt="Image" src="https://github.com/user-attachments/assets/57fd2a7b-00b6-451a-a29e-bdcdf4c2c8d9" />
 
+Melon juice bottle:
 <img width="170" height="73" alt="Image" src="https://github.com/user-attachments/assets/4cdd74ba-7a55-46e9-990d-8ea11d620d14" />
 
+Mjölnir:
 <img width="337" height="148" alt="Image" src="https://github.com/user-attachments/assets/34cb4166-de57-4348-8ddc-30f1b9b99d4f" />
 
+Mortar:
 <img width="335" height="157" alt="Image" src="https://github.com/user-attachments/assets/25ade66c-c731-43f9-9fd6-def95340ebc7" />
 
+Night vision goggles:
 <img width="170" height="81" alt="Image" src="https://github.com/user-attachments/assets/b1d116e6-d56f-462f-8cf5-3363789a5668" />
 
+Nuclear bomb:
 <img width="332" height="152" alt="Image" src="https://github.com/user-attachments/assets/53c60bd1-5969-41df-af1f-3b4b256e5b47" />
 
+Nuclear bomb remote controller:
 <img width="167" height="67" alt="Image" src="https://github.com/user-attachments/assets/effcf7a4-cb84-4d6c-a7ad-b6aae3d95931" />
 
+Paracetamol pill:
 <img width="332" height="152" alt="Image" src="https://github.com/user-attachments/assets/bd2f1629-d9d9-4e8b-aa95-d569c6aaa617" />
 
+Pistol:
 <img width="167" height="78" alt="Image" src="https://github.com/user-attachments/assets/bdf719f0-9e7b-40a3-bfec-651a8304507e" />
 
+Radar:
 <img width="160" height="79" alt="Image" src="https://github.com/user-attachments/assets/97c30ec8-0163-46cd-8a81-ac7fe4c951a1" />
 
+Red Lego block:
 <img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/36f4a680-fa00-4657-9d22-6bb7e15bf816" />
 
+Scoped crossbow:
 <img width="173" height="79" alt="Image" src="https://github.com/user-attachments/assets/ad284c94-1608-4bcc-81f6-df6719a446c8" />
 
+Slipper:
 <img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/5506fae9-78cc-4159-958d-d4c8869dfabd" />
 
+Stool:
 <img width="333" height="158" alt="Image" src="https://github.com/user-attachments/assets/3ce9ec4f-9dd0-424a-9386-75cab6ba07c6" />
-
 <img width="336" height="158" alt="Image" src="https://github.com/user-attachments/assets/a55e74c9-5219-4952-8255-67160c144182" />
-
 <img width="330" height="161" alt="Image" src="https://github.com/user-attachments/assets/8dcb5785-9054-45c6-a2f1-d88ea0f86ce7" />
-
 *** KEY: STOOL CAN BE MADE WITH ANY SLABS!!! ***
 
+Ultra torch:
 <img width="328" height="157" alt="Image" src="https://github.com/user-attachments/assets/36814faa-72fc-4609-8f0e-0ca6a93641f8" />
-
-
 
 
 
