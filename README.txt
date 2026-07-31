@@ -237,6 +237,18 @@ Below are the recipe photos:
 
 <img width="170" height="81" alt="Image" src="https://github.com/user-attachments/assets/b1d116e6-d56f-462f-8cf5-3363789a5668" />
 
+<img width="170" height="80" alt="Image" src="https://github.com/user-attachments/assets/5506fae9-78cc-4159-958d-d4c8869dfabd" />
+
+<img width="333" height="158" alt="Image" src="https://github.com/user-attachments/assets/3ce9ec4f-9dd0-424a-9386-75cab6ba07c6" />
+
+<img width="336" height="158" alt="Image" src="https://github.com/user-attachments/assets/a55e74c9-5219-4952-8255-67160c144182" />
+
+<img width="330" height="161" alt="Image" src="https://github.com/user-attachments/assets/8dcb5785-9054-45c6-a2f1-d88ea0f86ce7" />
+
+*** KEY: STOOL CAN BE MADE WITH ANY SLABS!!! ***
+
+<img width="328" height="157" alt="Image" src="https://github.com/user-attachments/assets/36814faa-72fc-4609-8f0e-0ca6a93641f8" />
+
 
 
 
