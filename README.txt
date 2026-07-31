@@ -4,12 +4,29 @@
 
 This is Big Random Mod, which AzzyAzimuth and I, nubxd11, code fun things here.
 
+
+## Authors and Credits :
+
+1. AzzyAzimuth : Main developer, concepts and logic
+2. nubxd11 : Co-Developer, visuals and assets
+3. SPECIAL THANKS TO THE MINECRAFT FORGE COMMUNITY!!
+
+
+## Bugs and Reports :
+
+If bugs are found in this mod, please open an issue in the *Issues* section in our project repository in GitHub
+web page. Please also include the crash log so that we can help you fix the issue!
+
+
 ##  About This Project :
-AzzyAzimuth and I have always wanted to enjoy Minecraft in our own way.
-So we started this project, to code this mod which includes the most random things that we love and enjoy.
-AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, presenting to you this mod.
+
+AzzyAzimuth and I have always wanted to enjoy Minecraft in our own way. So we started this project, to code
+this mod which includes the most random things that we love and enjoy.AzzyAzimuth has helped me a lot, so I
+shall thank him here. And here we are, presenting to you this mod.
+
 
 ##  Tech Stack :
+
 **Language** : Java
 **Framework** : Forge
 **Database** : JSON
@@ -17,7 +34,9 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 **Code Editor:** IntelliJ IDEA (Recommended), Eclipse, or VS Code.
 **Minecraft Version** : 1.15.2 Java Edition
 
+
 ##  Installation :
+
 1. In GitHub (browser version), press the green "code" button.
 2. Press download zip.
 3. Unzip by right-click the zip file in the file explorer and press extract all.
@@ -26,7 +45,9 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 6. Must build Gradle before running the code!!! (This may take a long time for first launch)
 7. Run the project using the built-in Forge run configuration or execute 'gradlew runClient' in your terminal!
 
+
 ##  Added items :
+
 1. The Bauxite Block
 Ahh yes, the iron(II) oxide, which is the real world version of the iron ore that we find and mine in caves.
 These are brown solids, which are then put into fire to make carbon dioxide and iron. We did not include the
@@ -183,8 +204,8 @@ ammo.
 Oh yes, the strongest damage dealer of the mod lineup! This pistol can literally one shot every single mob. The
 damage dealt with this pistol is 8 hearts, so you can literally kill anything (as long as you are good at
 shooting). Each shot has a cooldown of 0.25 seconds and consumes one bullet. The pistol will not break blocks
-when equipped. This pistol can shoot when left-clicking, and aim when right-clicking. Aiming and shooting
-animations do not interfere with each other.
+when equipped. This pistol shoots when left-clicking, and aims when right-clicking. Aiming and shooting animations
+do not interfere with each other.
 
 39. The Radar
 Lastly, this is the final thing we added to the mod. This radar can detect hostile mods from 16 blocks away, so
