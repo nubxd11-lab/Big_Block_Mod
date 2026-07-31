@@ -20,7 +20,6 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 2. Press download zip.
 3. Unzip by right-click the zip file in the file explorer and press extract all.
 4. Then paste everything in a folder for good organization.
-5. Import those folders into your code editor to run.
 
 ##  Added items
 1. The Bauxite Block
@@ -82,53 +81,87 @@ one effective way to do so. And the explosion and impact when the can breaks is 
 this logic to the mod and this item. This explosion will not cause fire, but the impact is the same as a TNT block.
 It still removes blocks, deal damage and also knockback.
 
-13. Air Blast
+13. The Air Blast
 Oh we love the Palm-leaf Fan in the Journey To The West. This fan creates strong wind, which made the fire on the
 Fiery Mountains to be stronger. Well, we don't have a Fiery Mountain, but we do have our own fan, air blast! No,
 it does not make fire stronger, and it does not blow structure away, but this fan has huge knockback! Playing
 around with this fan is actually huge fun, when you can see animals being blown to the other side of the river.
 It is literally so funny to watch!
 
-14, 15 & 16. Apple Juice Bottle, Carrot Juice Bottle and Melon Juice Bottle
+14, 15 & 16. The Apple Juice Bottle, the Carrot Juice Bottle and the Melon Juice Bottle
 It is weird that Minecraft does not have juice-related items. So we made some juice bottles. The juice bottles are
 not supposed to feed the player full, but at least there is a way for food. Don't worry, you won't eat the bottle. The
 glass will be put back to the inventory after consuming, so no concerns of glass hurting your throat.
 
-17. Belt
+17. The Belt
 Ahh, the strict fathers' weapon, run! Well, just be more than a meter away from the belt. Being whipped by the belt
 will definitely hurt like hell, so it causes big damage. Mind the keyword, big, not huge, not massive. There is more
 crazy weapons waiting with huge damage.
 
-18. Slipper
+18. The Slipper
 Oh yes, the strict Asian mothers' weapon. Wait, what?? RUN FOR YOUR LIVES!!! AIR RAID!!! Haha! This slipper is a
 long range weapon, not a short range weapon like the belt. We have made this so that you can throw it. This slipper
 doesn't deal as much damage as the belt, because the belt is always worse than the slipper, although asians do have
 ways to make it hurt more... Oh well, this slipper is rubber made, we can't make it hurt more.
 
-19. Suspicious Berry
+19. The Suspicious Berry
 A sibling of the suspicious series. There is a chance to get bad omen, hero of the village, luck and unluck, each
 with 25 percent chance of each. We forgot to include this in my demo video, so we are going to write about it here.
 This berry is colourful, with different colours of the rainbow included in the berry, symbolising the different
 choices we get. Sadly, this does not replenish any hunger, and is only a tool to get an effect.
 
-20 & 21. Candy and Coffee Candy
+20, 21 & 22. The Candy, the Sugar High Effect and the Coffee Candy
 Sweet treats, our favourite. The candy gives people sugar high effects in real life. There are always times that
 our friends just eat candy and just do the weirdest things... They just have unlimited power when in sugar high
 mode... We implemented the new sugar high effect for the candy, but not the coffe candy. The coffe candy includes
 caffeine, so we added speed and haste effects to the coffe candy to simulate the stimulated feeling after consuming
 caffeine.
 
-22, 23 & 24. Char Siu Porkchop, Honey Glazed Porkchop and Honey Glazed Chicken
+23, 24 & 25. The Char Siu Porkchop, the Honey Glazed Porkchop and the Honey Glazed Chicken
 Real meat, doesn't that feel nice. These also taste much better than the normal cooked meat. Char Siu is a really
 nice sweet and salty roasted pork, which is Hong Kong people's favourite food. This roasting technique is also used
 in western countries, but they use honey to roast the meat. The honey roasted meat is nice too, but not as good as
 Chat Siu Porkchop. Anyway, these meat all replenish huge amounts of hunger ad saturation. However, they have no
 effects on the player.
 
-25 & 26. Fether Dust and Fire Spirit
+26 & 27. The Feather Dust and the Fire Spirit
 The dusts that give you effect. Do you guys love the names? Well, we love them at least. Feather Dust, from the name
 means that you fall like a feather, so it gives you a slow falling effect. Fire Spirit, also from its name, gives you
 fire resistance. These are both effect tools, they do not replenish hunger.
+
+28. The Paracetamol Pill
+"I've got a headache, what should I do?" Take a paracetamol pill! These pills relieve your pain issues, but they do
+come at a cost. You must rest after eating the paracetamol pill. So this pill gives you the new added fatigue effect.
+This fatigue effect will decrease your movement speed by 15%, and your attack speed by 20%. In addition, there is also
+mining fatigue along with the two decreases as a package. So remember to rest, not go on a mining trip after eating
+this pill!
+
+29 & 30. The Drunk Goggles and the Night Vision Goggles
+Want to experience the feeling of being drunk? We've got you! The drunk goggles give you an effect of nausea 2 and
+slowness. This is guarenteed to make you walk so wobbly that you look like that you are drunk! Who needs to chug a
+beer when you have the drunk goggles. Need to look out for mobs when it's dark? We have night vision goggles just
+for you! This night vision goggles can give you unlimited night vision effect when equipped, and your screen goes
+green when equipped, like normal night vision goggles.
+
+31. The Ultra Torch
+Why is it so dark in here? *click* Wow, it's much brighter now. The ultra torch has maximum light intensity so that
+you can see anything in the dark. There is no more worry about mobs even without night vision goggles! This torch
+shines in hand, no matter it is in your main hand or off hand, so it is always a good back up plan if you cannot
+get the night vision goggles.
+
+32. The Dagger
+A small knife that can be put into a pocket. This can deal huge damage with great skill. A stab with the dagger can
+be fatal. Moreover, this dagger is much lighter than a sword, therefore, the waving speed is absolutely rapid. Within
+a short timelapse, huge amounts of damage can be done!
+
+33. The Mjolnir
+Why is there lightning?! Oh, it's Thor's hammer, the Mjolnir! This is a hammer that summons lightning. It would
+probably be the first time that you don't need a thunderstorm to get lightning. This Mjolnir doesn't summon
+lightning when you interact with blocks. This hammer also deals damage on its own without lightning! The damage with
+the lightning damage is immense!
+
+34. The Scoped Crossbow
+There is a Crossbow that sends exploding TNT blocks out.
 
 
 
