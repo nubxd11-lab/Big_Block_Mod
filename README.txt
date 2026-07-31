@@ -13,6 +13,8 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 **Language** : Java
 **Framework** : Forge
 **Database** : JSON
+* **Java:** JDK 11 installed and set in your environment variables.
+* **Code Editor:** IntelliJ IDEA (Recommended), Eclipse, or VS Code.
 **Minecraft Version** : 1.15.2 Java Edition
 
 ##  Installation
@@ -20,6 +22,9 @@ AzzyAzimuth has helped me a lot, so I shall thank him here. And here we are, pre
 2. Press download zip.
 3. Unzip by right-click the zip file in the file explorer and press extract all.
 4. Then paste everything in a folder for good organization.
+5. Press 'open' or 'import project' the files into your code editor
+6. Must build Gradle before running the code!!! (This may take a long time for first launch)
+7. Run the project using the built-in Forge run configuration or execute 'gradlew runClient' in your terminal!
 
 ##  Added items
 1. The Bauxite Block
@@ -32,7 +37,7 @@ from me". The world generation code was written later on in the project since we
 can be more complete.
 
 2. The Sapphire Block
-A mineral that is extremely hard, and is used for the glass in watches to prevent scrateches. This mineral is
+A mineral that is extremely hard, and is used for the glass in watches to prevent scratches. This mineral is
 just slightly weaker in hardness than diamond (10) in the mohs hardness scale (sapphire's hardness in the mohs
 hardness scale is 9, the third-hardest mineral on Earth). For this block, we made the block having a high hardness,
 same as the diamond block. Again, this block has a world generation code so that it can replace stone blocks and
@@ -46,7 +51,7 @@ created in. This block is the first block that is made in this mod and AzzyAzimu
 solutions at that time.
 
 5. The Red Lego Block
-Remember the times that you have stepped on a lego block? It must've hurt badly! And yes, we have put this block
+Remember the times that you have stepped on a Lego block? It must've hurt badly! And yes, we have put this block
 into the mod to make things funny. This block is coded to deal half a heart of damage when stepped on, walked on,
 jumped on and when landed on. This block is a red in colour, and has studs popping out of the top to look like each
 block slots on the other.
@@ -65,9 +70,10 @@ about constantly standing and being tired in the game! Right-click on the stool 
 9 & 10. The Mortar and The Grenade
 Need to send things high and far to attack people? This mortar can hit targets up to 100 blocks away! This is a great
 tool to use when trying to hit far away enemies. This mortar, rather than launching normal mortar shells, it launches
-grenades that detonate on impact. The grenades that AzzyAzimuth and I coded have a 4-second fuse rather than detonating
-on impact. AzzyAzimuth and I spent a long time trying to get the best trajectory for the mortar and the grenade by
-trialing and erroring. So we do hope that everyone likes it!
+grenades that detonate on impact. Each shot from the mortar uses one grenade. The grenades that AzzyAzimuth and I
+coded when throwing out of hands have a 4-second fuse rather than detonating on impact. AzzyAzimuth and I spent a
+long time trying to get the best trajectory for the mortar and the grenade by trialing and erroring. So we do hope
+that everyone likes it!
 
 11. The Adrenaline Pill
 To be honest, this thing doesn't work in real life, because the hormone will be dissolved when it enters the body. But
@@ -154,18 +160,45 @@ A small knife that can be put into a pocket. This can deal huge damage with grea
 be fatal. Moreover, this dagger is much lighter than a sword, therefore, the waving speed is absolutely rapid. Within
 a short timelapse, huge amounts of damage can be done!
 
-33. The Mjolnir
-Why is there lightning?! Oh, it's Thor's hammer, the Mjolnir! This is a hammer that summons lightning. It would
-probably be the first time that you don't need a thunderstorm to get lightning. This Mjolnir doesn't summon
+33. The Mjölnir
+Why is there lightning?! Oh, it's Thor's hammer, the Mjölnir! This is a hammer that summons lightning. It would
+probably be the first time that you don't need a thunderstorm to get lightning. This Mjölnir doesn't summon
 lightning when you interact with blocks. This hammer also deals damage on its own without lightning! The damage with
 the lightning damage is immense!
 
 34. The Scoped Crossbow
-There is a Crossbow that sends exploding TNT blocks out.
+There is a crossbow that sends exploding TNT blocks out. It is a fun tool to remove blocks, and you don't ever have to
+use that pickaxe that removes one block every time. This scoped crossbow can also be used to shoot mobs from far away.
+Playing with this crossbow was so fun that AzzyAzimuth and I challenged each other to hit a tree on a mountain 100
+blocks away. Men really are simple creatures...
+
+35 & 36. The MANPADS and the MANPADS Ammo
+MANPADS, in longer terms, is Man Portable Air Defense System. This is essentially a bazooka in Russian terms or an
+RPG in American terms. This device locks your target, and then you right-click to shoot. Each shot uses one MANPADS
+ammo. MANPADS ammo was originally named rocket ammo since we thought that it might be used in other occasions. Turns
+out, we didn't need it in any other items. Also, to make it easier to understand for players, we made it MANPADS
+ammo.
+
+37 & 38. The Pistol and the Bullet
+Oh yes, the strongest damage dealer of the mod lineup! This pistol can literally one shot every single mob. The
+damage dealt with this pistol is 8 hearts, so you can literally kill anything (as long as you are good at
+shooting). Each shot has a cooldown of 0.25 seconds and consumes one bullet. The pistol will not break blocks
+when equipped. This pistol can shoot when left-clicking, and aim when right-clicking. Aiming and shooting
+animations do not interfere with each other.
+
+39. The Radar
+Lastly, this is the final thing we added to the mod. This radar can detect hostile mods from 16 blocks away, so
+it is very sensitive when you're underground and trying to mine things but not get hurt by mobs. This radar is
+active when the radar is in your inventory. This means that you csn be surronded by stone blocks but the message
+of "Hostile Mobs Nearby!" will still appear above your inventory bar. How cool is that?
+
+40. RECIPES
+Below are the recipe photos:
 
 
 
 
-##  COPYRIGHT
-Copyright (c) 2026 AzzyAzimuth and nubxd11. All rights reserved.
-Distribution of any portions of code or raw assets without explicit written permission is strictly prohibited.
+
+
+## *** Copyright (c) 2026 AzzyAzimuth and nubxd11. All rights reserved.
+## *** Distribution of any portions of code or raw assets without explicit written permission is strictly prohibited.
